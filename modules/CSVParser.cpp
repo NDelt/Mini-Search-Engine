@@ -13,6 +13,11 @@ std::vector<std::vector<std::string>> CSVParser(const std::string& filePath) {
     
     std::vector<std::vector<std::string>> matrix; // 2차원 vector
     
+    if (reader.fail()) {
+        std::cout << "Error - '" << filePath << "' does not exist!\n";
+        exit(0);
+    }
+    
     std::string line;
     
     // 한 줄 읽기

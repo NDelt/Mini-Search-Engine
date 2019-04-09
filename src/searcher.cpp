@@ -15,7 +15,6 @@ void Searcher::Search(std::string& searchQuery, HashMap& hashMap) {
         this->searchedDocs.insert(this->searchedDocs.end(), taken.begin(), taken.end());
     }
     
-    // TODO: searchedDocs 배열에 저장된 ID 값을 이용하여 Redis 데이터베이스에서 'TITLE(1)', 'BASIC QUALIFICATIONS(5)' 키의 값 읽어오기
     for (int i : this->searchedDocs) {
         std::cout << i << " ";
     }
