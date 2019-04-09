@@ -19,15 +19,13 @@
 #include "indexer.hpp"
 #include "searcher.hpp"
 
-#include "../test/hashMapTEST.cpp"
-
 #define MAX_QUERY_SIZE 1000
 
 int main() {
     HashMap hashMap;
     
     Indexer indexer;
-    indexer.CreateIndex("../resources/sample.csv", hashMap);
+    indexer.CreateIndex("../resources/amazon_jobs.csv", hashMap);
     
     Searcher searcher;
     

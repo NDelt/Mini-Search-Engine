@@ -3,7 +3,7 @@
 /**
  * 역색인 테이블 생성기
  * 1) CSV 파싱
- * 2) 'PREFERRED QUALIFICATIONS' 컬럼에 대해 토큰 단위로 문자열 파싱
+ * 2) 'BASIC QUALIFICATIONS' 컬럼에 대해 토큰 단위로 문자열 파싱
  * 3) 문자열 파싱 후 반환되는 vector를 순회하며 (토큰, ID) 형식으로 해시 테이블에 데이터 추가
  */
 
@@ -24,15 +24,15 @@ void Indexer::CreateIndex(const std::string& filePath, HashMap& hashMap) {
     
     int csvParsingCount = 1;
     
-    // 사용하는 CSV 파일 컬럼: ID(0), TITLE(1), PREFERRED QUALIFICATIONS(6)
-    // 토큰 분석 대상 컬럼: PREFERRED QUALIFICATIONS(6)
+    // 사용하는 CSV 파일 컬럼: ID(0), TITLE(1), BASIC QUALIFICATIONS(5)
+    // 토큰 분석 대상 컬럼: BASIC QUALIFICATIONS(5)
     for (const std::vector<std::string>& row : matrix) {
         std::cout << ">>>>> (" << csvParsingCount << ") Parsing words...\n";
         start = clock();
         
         this->id            = strtol(row[0].c_str(), nullptr, 10);
         this->title         = row[1];
-        this->qualification = row[6];
+        this->qualification = row[5];
         
         std::cout << "* ID : " << this->id << "\n";
         std::cout << "* Job Title : " << this->title << "\n";

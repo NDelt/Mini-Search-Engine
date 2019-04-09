@@ -19,13 +19,17 @@ int HashSlot::GetValue() const {
 void HashMap::Add(const std::string& key, const int value) {
     int rowIdx = HashFunction(key, this->matrix.size());
     
+    if (rowIdx == -1) {
+        return;
+    }
+    
     if (rowIdx < static_cast<int>(this->matrix.size())) {
         std::list<HashSlot>& colList = this->matrix.at(rowIdx);
         auto itr = colList.begin();
         
         while (itr != colList.end()) {
             if (!colList.empty() && (*itr).GetKey() == key && (*itr).GetValue() == value) {
-                return; // rowIdx 인덱스 위치한 리스트에 인자로 전달된 키와 값을 가진 원소가 이미 존재한다면 슬롯을 추가하지 않는다.
+                return; // rowIdx 인덱스에 위치한 리스트에 인자로 전달된 키와 값을 가진 원소가 이미 존재한다면 슬롯을 추가하지 않는다.
             }
             
             ++itr;
@@ -52,6 +56,11 @@ std::vector<int> HashMap::Get(const std::string& key) {
     
     while (divider <= static_cast<int>(this->matrix.size())) {
         int rowIdx = HashFunction(key, divider);
+        
+        if (rowIdx == -1) {
+            return ret;
+        }
+        
         std::list<HashSlot>& colList = this->matrix.at(rowIdx); // colList가 matrix 벡터의 rowIdx 인덱스에 위치한 리스트를 참조한다.
         
         /* std::list<HashSlot>::iterator itr = colList.begin(); */
@@ -82,6 +91,12 @@ void HashMap::Remove(const std::string& key, const int value) {
     
     while (divider <= static_cast<int>(this->matrix.size())) {
         int rowIdx = HashFunction(key, divider);
+        
+        if (rowIdx == -1) {
+            std::cout << "'" << key << "' is cannot be parsed.\n";
+            return;
+        }
+        
         std::list<HashSlot>& colList = this->matrix.at(rowIdx);
         
         auto itr = colList.begin();
@@ -113,7 +128,7 @@ int HashMap::GetCurrentRowCount() {
 }
 
 int HashMap::HashFunction(const std::string& key, const int totalRowCount) {
-    int ret     = 0;
+    int ret     = -1;
     int tempKey = 0;
     int offset  = 1;
     
@@ -124,6 +139,10 @@ int HashMap::HashFunction(const std::string& key, const int totalRowCount) {
     }
     
     tempKey = StringToInt(key);
+    
+    if (tempKey < 0) {
+        return ret;
+    }
     
     // 해싱: 검색 키를 테이블의 행 수로 나눈 나머지가 해시 값이 된다.
     if (this->currentRowCount <= DEFAULT_SIZE) {
