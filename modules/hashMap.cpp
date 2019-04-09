@@ -104,7 +104,7 @@ void HashMap::Remove(const std::string& key, const int value) {
         while (itr != colList.end()) {
             if ((*itr).GetKey() == key && (*itr).GetValue() == value) {
                 valueFound = true;
-                colList.erase(itr); // itr이 가리키는 HashSlot 원소 삭제
+                colList.erase(itr); // itr이 가리키는 HashSlot 원소를 삭제한다.
                 break;
             }
             
@@ -165,7 +165,7 @@ int HashMap::HashFunction(const std::string& key, const int totalRowCount) {
                 ret = (tempKey + offset) % totalRowCount;
             }
             
-            // 새로 계산한 해시 값이 초기 해시 값과 동일할 경우, 한 바퀴 순회가 끝날 동안 올바른 리스트를 찾지 못한 것이므로 탈출한다.
+            // 새로 계산한 해시 값이 초기 해시 값과 동일할 경우, 한 바퀴 순회가 끝날 동안 올바른 리스트를 찾지 못한 것이므로 반복을 중단한다.
             if (ret == initialRet) {
                 break;
             }

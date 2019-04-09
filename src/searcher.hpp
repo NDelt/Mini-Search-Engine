@@ -4,9 +4,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 #include <ctime>
-
-#include <sw/redis++/redis++.h>
 
 #include "queryParser.hpp"
 #include "../modules/hashMap.hpp"

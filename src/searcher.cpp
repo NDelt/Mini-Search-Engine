@@ -15,6 +15,10 @@ void Searcher::Search(std::string& searchQuery, HashMap& hashMap) {
         this->searchedDocs.insert(this->searchedDocs.end(), taken.begin(), taken.end());
     }
     
+    // 중복 원소 제거
+    std::sort(this->searchedDocs.begin(), this->searchedDocs.end());
+    this->searchedDocs.erase(std::unique(this->searchedDocs.begin(), this->searchedDocs.end()), this->searchedDocs.end());
+    
     for (int i : this->searchedDocs) {
         std::cout << i << " ";
     }
