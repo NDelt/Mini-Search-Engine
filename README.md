@@ -8,3 +8,10 @@
 * Windows Subsystem for Linux - Ubuntu
 * GCC 7.3.0
 * CMake 3.10.2
+
+### 사용하기 (CLI)
+```
+git clone git@github.com:NDelt/Mini-SearchEngine.git
+cd cmake-build-debug-wsl
+./main
+```
