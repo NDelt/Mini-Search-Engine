@@ -7,6 +7,6 @@
 #include <fstream>
 #include <sstream>
 
-std::vector<std::vector<std::string>> CSVParser(const std::string& filePath);
+std::vector<std::vector<std::string>> parseCSV(const std::string& filePath);
 
 #endif

@@ -6,6 +6,6 @@
 #include <vector>
 #include <sstream>
 
-std::vector<std::string> split_string(std::string& str);
+std::vector<std::string> splitString(std::string& str);
 
 #endif

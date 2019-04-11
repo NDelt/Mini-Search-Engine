@@ -2,10 +2,9 @@
 #define HASHMAP_HPP
 
 #define HONOR_OFFSET 5
-#define DEFAULT_SIZE 100000
+#define DEFAULT_SIZE 15
 
 #include <iostream>
-#include <list>
 #include <limits>
 #include <vector>
 #include <string>
@@ -14,9 +13,9 @@ class HashSlot {
 public:
     HashSlot(const std::string& pKey, const int pValue) : key(pKey), value(pValue) {};
     
-    std::string GetKey() const;
+    std::string getKey() const;
     
-    int GetValue() const;
+    int getValue() const;
 
 private:
     std::string key;
@@ -26,25 +25,28 @@ private:
 
 class HashMap {
 public:
-    HashMap() : matrix(DEFAULT_SIZE), currentRowCount(0) {};
+    HashMap() : matrix(DEFAULT_SIZE), currentRowCount(0), currentSlotCount(0) {};
     
-    void Add(const std::string& key, const int value);
+    void add(const std::string& key, const int value);
     
-    std::vector<int> Get(const std::string& key);
+    std::vector<int> getValues(const std::string& key);
     
-    void Remove(const std::string& key, const int value);
+    int getRowSize(const int value);
     
-    int GetCurrentRowCount();
+    void remove(const std::string& key, const int value);
+    
+    int getCurrentRowCount();
 
 protected:
-    int HashFunction(const std::string& key, const int totalRowCount);
+    std::vector<std::vector<HashSlot>> matrix; // 2차원 해시 테이블
     
-    int StringToInt(const std::string& key) const;
+    int hashFunction(const std::string& key, const int totalRowCount);
+    
+    int stringToInt(const std::string& key) const;
 
 private:
-    std::vector<std::list<HashSlot>> matrix; // 2차원 해시 테이블
-    
     int currentRowCount;
+    int currentSlotCount;
 };
 
 #endif

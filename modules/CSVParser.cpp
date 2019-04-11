@@ -7,7 +7,7 @@
  * #) 컬럼 내부의 강조 문자열(이중 큰 따옴표, ""..."") 인식 가능
  */
 
-std::vector<std::vector<std::string>> CSVParser(const std::string& filePath) {
+std::vector<std::vector<std::string>> parseCSV(const std::string& filePath) {
     std::fstream reader;
     reader.open(filePath);
     
@@ -15,7 +15,7 @@ std::vector<std::vector<std::string>> CSVParser(const std::string& filePath) {
     
     if (reader.fail()) {
         std::cout << "Error - '" << filePath << "' does not exist!\n";
-        exit(0);
+        std::_Exit(EXIT_FAILURE);
     }
     
     std::string line;
@@ -35,13 +35,13 @@ std::vector<std::vector<std::string>> CSVParser(const std::string& filePath) {
         bool twiceQuotes = false;
         
         // 한 줄에서 한 단어씩 읽기
-        for (int queryIdx = 0; queryIdx < static_cast<int>(line.size()); ++queryIdx) {
+        for (int queryIdx = 0; queryIdx < (int)line.size(); ++queryIdx) {
             const char c = line.at(queryIdx);
             
             switch (c) {
                 case '"':
                     /* queryIdx에 +1을 하기 전 line.size()에 대한 경계값 검사 */
-                    if (queryIdx + 1 < static_cast<int>(line.size()) && line.at(queryIdx + 1) == '"') {
+                    if (queryIdx + 1 < (int)line.size() && line.at(queryIdx + 1) == '"') {
                         twiceQuotes = true;
                         goto SKIPPED; // 따옴표가 연속으로 두 번 나타나는 경우, 컬럼 단위가 아니므로 스킵
                     }

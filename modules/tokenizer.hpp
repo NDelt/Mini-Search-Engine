@@ -7,6 +7,6 @@
 
 #include "split.hpp"
 
-std::vector<std::string> Tokenizer(std::string& query);
+std::vector<std::string> tokenizer(std::string& query);
 
 #endif

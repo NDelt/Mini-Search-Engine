@@ -4,11 +4,11 @@
  * 해시 슬롯 클래스
  */
 
-std::string HashSlot::GetKey() const {
+std::string HashSlot::getKey() const {
     return this->key;
 }
 
-int HashSlot::GetValue() const {
+int HashSlot::getValue() const {
     return this->value;
 }
 
@@ -16,60 +16,66 @@ int HashSlot::GetValue() const {
  * 해시 테이블 클래스
  */
 
-void HashMap::Add(const std::string& key, const int value) {
-    int rowIdx = HashFunction(key, this->matrix.size());
+void HashMap::add(const std::string& key, const int value) {
+    int rowIdx = hashFunction(key, this->matrix.size());
     
     if (rowIdx == -1) {
         return;
     }
     
-    if (rowIdx < static_cast<int>(this->matrix.size())) {
-        std::list<HashSlot>& colList = this->matrix.at(rowIdx);
-        auto itr = colList.begin();
+    if (rowIdx < (int)this->matrix.size()) {
+        std::vector<HashSlot>& colVtr = this->matrix.at(rowIdx);
         
-        while (itr != colList.end()) {
-            if (!colList.empty() && (*itr).GetKey() == key && (*itr).GetValue() == value) {
-                return; // rowIdx 인덱스에 위치한 리스트에 인자로 전달된 키와 값을 가진 원소가 이미 존재한다면 슬롯을 추가하지 않는다.
+        auto itr    = colVtr.begin();
+        auto endItr = colVtr.end();
+        
+        while (itr != endItr) {
+            if (!colVtr.empty() && (*itr).getKey() == key && (*itr).getValue() == value) {
+                return; // rowIdx 인덱스에 위치한 vector에 인자로 전달된 키와 값을 가진 원소가 이미 존재한다면 슬롯을 추가하지 않는다.
             }
             
             ++itr;
         }
     }
     
-    if (rowIdx >= static_cast<int>(this->matrix.size())) {
+    if (rowIdx >= (int)this->matrix.size()) {
         this->matrix.resize(this->matrix.size() + DEFAULT_SIZE); // 해시 테이블의 행 수는 기본값 100000(십만)부터 시작하여 초기 사이즈와 동일한 폭으로 늘어난다.
     }
     
     HashSlot slot(key, value);
     this->matrix.at(rowIdx).push_back(slot);
     
+    ++(this->currentSlotCount);
+    
     if (this->matrix.at(rowIdx).size() == 1) {
-        ++(this->currentRowCount); // 리스트에 첫 번째 슬롯이 추가될 때 사용 중인 행 수를 1 증가시킨다.
+        ++(this->currentRowCount); // 특정 vector에 첫 번째 슬롯이 추가될 때 사용 중인 행 수를 1 증가시킨다.
     }
 }
 
-std::vector<int> HashMap::Get(const std::string& key) {
-    int  divider    = DEFAULT_SIZE;
+std::vector<int> HashMap::getValues(const std::string& key) {
+    int matrixSize = this->matrix.size();
+    int divider    = DEFAULT_SIZE;
+    
     bool valueFound = false;
     
     std::vector<int> ret;
     
-    while (divider <= static_cast<int>(this->matrix.size())) {
-        int rowIdx = HashFunction(key, divider);
+    while (divider <= matrixSize) {
+        int rowIdx = hashFunction(key, divider);
         
         if (rowIdx == -1) {
             return ret;
         }
         
-        std::list<HashSlot>& colList = this->matrix.at(rowIdx); // colList가 matrix 벡터의 rowIdx 인덱스에 위치한 리스트를 참조한다.
+        std::vector<HashSlot>& colVtr = this->matrix.at(rowIdx); // colVtr이 matrix vector의 rowIdx 인덱스에 위치한 vector를 참조한다.
         
-        /* std::list<HashSlot>::iterator itr = colList.begin(); */
-        auto itr = colList.begin();
+        auto itr    = colVtr.begin();
+        auto endItr = colVtr.end();
         
-        while (itr != colList.end()) {
-            if ((*itr).GetKey() == key) {
+        while (itr != endItr) {
+            if ((*itr).getKey() == key) {
                 valueFound = true;
-                ret.push_back((*itr).GetValue());
+                ret.push_back((*itr).getValue());
             }
             
             ++itr;
@@ -79,39 +85,69 @@ std::vector<int> HashMap::Get(const std::string& key) {
     }
     
     if (!valueFound) {
-        std::cout << "No matching values for '" << key << "'\n";
+        std::cout << "No matching values for '" << key << "'";
     }
     
     return ret;
 }
 
-void HashMap::Remove(const std::string& key, const int value) {
-    int  divider    = DEFAULT_SIZE;
+/* value 값이 들어 있는 행 vector의 길이 반환 */
+int HashMap::getRowSize(const int value) {
     bool valueFound = false;
     
-    while (divider <= static_cast<int>(this->matrix.size())) {
-        int rowIdx = HashFunction(key, divider);
+    for (int i = 0; i < (int)this->matrix.size(); ++i) {
+        std::vector<HashSlot>& colVtr = this->matrix.at(i);
         
-        if (rowIdx == -1) {
-            std::cout << "'" << key << "' is cannot be parsed.\n";
-            return;
-        }
+        auto itr    = colVtr.begin();
+        auto endItr = colVtr.end();
         
-        std::list<HashSlot>& colList = this->matrix.at(rowIdx);
-        
-        auto itr = colList.begin();
-        
-        while (itr != colList.end()) {
-            if ((*itr).GetKey() == key && (*itr).GetValue() == value) {
+        while (itr != endItr) {
+            if ((*itr).getValue() == value) {
                 valueFound = true;
-                colList.erase(itr); // itr이 가리키는 HashSlot 원소를 삭제한다.
                 break;
             }
             
             ++itr;
         }
         
-        if (colList.empty()) {
+        if (valueFound) {
+            return this->matrix.at(i).size();
+        }
+    }
+    
+    return 0;
+}
+
+void HashMap::remove(const std::string& key, const int value) {
+    int  divider    = DEFAULT_SIZE;
+    bool valueFound = false;
+    
+    while (divider <= (int)this->matrix.size()) {
+        int rowIdx = hashFunction(key, divider);
+        
+        if (rowIdx == -1) {
+            std::cout << "'" << key << "' is cannot be parsed.\n";
+            return;
+        }
+        
+        std::vector<HashSlot>& colVtr = this->matrix.at(rowIdx);
+        
+        auto itr    = colVtr.begin();
+        auto endItr = colVtr.end();
+        
+        while (itr != endItr) {
+            if ((*itr).getKey() == key && (*itr).getValue() == value) {
+                valueFound = true;
+                colVtr.erase(itr); // itr이 가리키는 HashSlot 원소를 삭제한다.
+                break;
+            }
+            
+            ++itr;
+        }
+        
+        --(this->currentSlotCount);
+        
+        if (colVtr.empty()) {
             --(this->currentRowCount);
         }
         
@@ -119,26 +155,26 @@ void HashMap::Remove(const std::string& key, const int value) {
     }
     
     if (!valueFound) {
-        std::cout << "No matching values for '" << key << "'\n";
+        std::cout << "No matching values for '" << key << "'";
     }
 }
 
-int HashMap::GetCurrentRowCount() {
+int HashMap::getCurrentRowCount() {
     return this->currentRowCount;
 }
 
-int HashMap::HashFunction(const std::string& key, const int totalRowCount) {
+int HashMap::hashFunction(const std::string& key, const int totalRowCount) {
     int ret     = -1;
     int tempKey = 0;
     int offset  = 1;
     
-    // 현재 사용 중인 리스트의 개수가 100000의 배수라면 테이블의 모든 행이 가득 찬 것이므로, 리스트의 개수(다음 100000개의 첫 번째 행)를 인덱스로 지정한다.
-    if (this->currentRowCount % 100000 == 0) {
+    // 현재 사용 중인 vector의 개수가 100000의 배수라면 테이블의 모든 행이 가득 찬 것이므로, vector의 개수를 인덱스로 지정한다.(= 다음 100000개의 첫 번째 행)
+    if (this->currentRowCount % DEFAULT_SIZE == 0) {
         ret = this->currentRowCount;
         return ret;
     }
     
-    tempKey = StringToInt(key);
+    tempKey = stringToInt(key);
     
     if (tempKey < 0) {
         return ret;
@@ -154,18 +190,18 @@ int HashMap::HashFunction(const std::string& key, const int totalRowCount) {
     int initialRet = ret;
     
     while (true) {
-        std::list<HashSlot>& colList = this->matrix.at(ret);
-        auto itr = colList.begin();
+        std::vector<HashSlot>& colVtr = this->matrix.at(ret);
+        auto itr = colVtr.begin();
         
-        // 해시 값에 해당하는 리스트에 이미 원소가 저장되어 있고, 그 원소의 키가 인자로 주어진 키와 다를 경우 다시 해싱한다.
-        if (!colList.empty() && (*itr).GetKey() != key) {
+        // 해시 값에 해당하는 vector에 이미 원소가 저장되어 있고, 그 원소의 키가 인자로 주어진 키와 다를 경우 다시 해싱한다.
+        if (!colVtr.empty() && (*itr).getKey() != key) {
             if (this->currentRowCount <= DEFAULT_SIZE) {
                 ret = (tempKey + offset) % DEFAULT_SIZE;
             } else {
                 ret = (tempKey + offset) % totalRowCount;
             }
             
-            // 새로 계산한 해시 값이 초기 해시 값과 동일할 경우, 한 바퀴 순회가 끝날 동안 올바른 리스트를 찾지 못한 것이므로 반복을 중단한다.
+            // 새로 계산한 해시 값이 초기 해시 값과 동일할 경우, 한 바퀴 순회가 끝날 동안 올바른 vector를 찾지 못한 것이므로 반복을 중단한다.
             if (ret == initialRet) {
                 break;
             }
@@ -180,7 +216,7 @@ int HashMap::HashFunction(const std::string& key, const int totalRowCount) {
     return ret;
 }
 
-int HashMap::StringToInt(const std::string& key) const {
+int HashMap::stringToInt(const std::string& key) const {
     int ret = 0;
     
     /*
@@ -200,7 +236,7 @@ int HashMap::StringToInt(const std::string& key) const {
             return ret;
         }
         
-        ret = (ret * HONOR_OFFSET) + static_cast<int>(c); // Honor's method를 이용하여 문자열을 정수로 변환한다.
+        ret = (ret * HONOR_OFFSET) + (int)c; // Honor's method를 이용하여 문자열을 정수로 변환한다.
     }
     
     return ret;

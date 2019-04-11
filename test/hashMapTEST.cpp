@@ -4,23 +4,25 @@
 
 #include "../modules/hashMap.hpp"
 
-void HashMapTest() {
+void hashMapTest() {
     HashMap hm;
     
-    hm.Add("January", 1);
-    hm.Add("February", 2);
-    hm.Add("February", 3);
-    hm.Add("March", 4);
-    hm.Add("ABCDEFGHIJKLMNOPQRSTUVWXYZ", 5);
-    hm.Add("ABCDEFGHIJKLMNOPQRSTUVWXYZ", 6);
-    hm.Add("April", 7);
-    hm.Add("April", 8);
-    hm.Add("April", 9);
-    hm.Add("May", 10);
+    hm.add("January", 1);
+    hm.add("February", 2);
+    hm.add("February", 3);
+    hm.add("March", 4);
+    hm.add("ABCDEFGHIJKLMNOPQRSTUVWXYZ", 5);
+    hm.add("ABCDEFGHIJKLMNOPQRSTUVWXYZ", 6);
+    hm.add("April", 7);
+    hm.add("April", 8);
+    hm.add("April", 9);
+    hm.add("May", 10);
     
-    std::vector<int> ret1 = hm.Get("February");
-    std::vector<int> ret2 = hm.Get("April");
-    std::vector<int> ret3 = hm.Get("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    std::cout << hm.getRowSize(8) << "\n";
+    
+    std::vector<int> ret1 = hm.getValues("February");
+    std::vector<int> ret2 = hm.getValues("April");
+    std::vector<int> ret3 = hm.getValues("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
     
     for (int i : ret1) {
         std::cout << i << " ";
@@ -38,9 +40,9 @@ void HashMapTest() {
         std::cout << i << " ";
     }
     
-    hm.Remove("February", 3);
+    hm.remove("February", 3);
     
-    std::vector<int> ret4 = hm.Get("February");
+    std::vector<int> ret4 = hm.getValues("February");
     std::cout << "\n";
     
     for (int i : ret4) {

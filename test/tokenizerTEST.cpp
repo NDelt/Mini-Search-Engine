@@ -3,9 +3,9 @@
 
 #include "../modules/tokenizer.hpp"
 
-class TokenizerTest {
+class tokenizerTest {
 public:
-    void SampleTokenizing() {
+    void sampleTokenizing() {
         std::ifstream reader("../resources/sample_text.txt");
         std::string   convertedStr;
         
@@ -15,17 +15,16 @@ public:
             std::cout << "------------------------------------------------------------\n";
             
             // 토큰 분리 메소드 호출
-            for (const std::string& tempStr : Tokenizer(convertedStr)) {
+            for (const std::string& tempStr : tokenizer(convertedStr)) {
                 testVtr.push_back(tempStr);
             }
         }
     }
     
-    std::vector<std::string> GetTestVtr() {
+    std::vector<std::string> getTestVtr() {
         return testVtr;
     }
 
 private:
     std::vector<std::string> testVtr;
-    
 };

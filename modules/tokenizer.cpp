@@ -2,14 +2,15 @@
 
 #include "tokenizer.hpp"
 
-std::vector<std::string> Tokenizer(std::string& query) {
-    int spaceBegin = 0;
-    int spaceIdx   = 0;
+std::vector<std::string> tokenizer(std::string& query) {
+    int spaceBegin  = 0;
+    int spaceIdx    = 0;
+    int queryLength = query.length();
     
     bool spacing = false;
     
     // 공백이 여러 개일 경우, 한 개의 공백만 남기고 모두 제거한다.
-    for (int queryIdx = 0; queryIdx < static_cast<int>(query.length()); ++queryIdx) {
+    for (int queryIdx = 0; queryIdx < queryLength; ++queryIdx) {
         const char c = query.at(queryIdx);
         
         if (c == ' ') {
@@ -49,7 +50,7 @@ std::vector<std::string> Tokenizer(std::string& query) {
         }
     }
     
-    std::vector<std::string> internal = split_string(query);
+    std::vector<std::string> internal = splitString(query);
     
     return internal;
 }

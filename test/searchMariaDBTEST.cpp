@@ -13,11 +13,11 @@
  * Deprecated
  */
 
-void SearchingMariaDBTEST() {
-    sql::Driver*     driver = nullptr;
+void searchMariaDBTest() {
+    sql::Driver    * driver = nullptr;
     sql::Connection* conn   = nullptr;
-    sql::Statement*  stmt   = nullptr;
-    sql::ResultSet*  result = nullptr;
+    sql::Statement * stmt   = nullptr;
+    sql::ResultSet * result = nullptr;
     
     try {
         driver = get_driver_instance();

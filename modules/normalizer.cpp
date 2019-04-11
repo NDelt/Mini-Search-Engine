@@ -1,15 +1,16 @@
 #include "normalizer.hpp"
 
-std::string Normalizer(std::string& query) {
+std::string normalizer(std::string& query) {
     std::string retStr;
     
     int removeBegin = 0;
     int removeIdx   = 0;
+    int queryLength = query.length();
     
     bool removing = false;
     
     // 쿼리 문자열을 순회하며 HTML 태그와 특수문자 제거
-    for (int queryIdx = 0; queryIdx < static_cast<int>(query.length()); ++queryIdx) {
+    for (int queryIdx = 0; queryIdx < queryLength; ++queryIdx) {
         char c = query.at(queryIdx);
         
         // 대문자를 소문자로 변환

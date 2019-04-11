@@ -1,17 +1,21 @@
 #include "searcher.hpp"
 
-void Searcher::Search(std::string& searchQuery, HashMap& hashMap) {
+void Searcher::search(std::string& searchQuery, HashMap& hashMap) {
     std::vector<std::string> parsedString;
+    std::vector<int>         taken;
     
     clock_t start, end;
     double  result;
     
+    std::cout << std::fixed;
+    std::cout.precision(4);
+    
     start = clock();
     
-    parsedString = QueryParser::Parse(searchQuery);
+    parsedString = QueryParser::parse(searchQuery);
     
     for (const std::string& str : parsedString) {
-        std::vector<int> taken = hashMap.Get(str);
+        taken = hashMap.getValues(str);
         this->searchedDocs.insert(this->searchedDocs.end(), taken.begin(), taken.end());
     }
     
@@ -29,5 +33,5 @@ void Searcher::Search(std::string& searchQuery, HashMap& hashMap) {
     end    = clock();
     result = (double)(end - start);
     
-    printf(">>>>> (%0.4lfs)\n", result / CLOCKS_PER_SEC);
+    std::cout << ">>>>> " << result / CLOCKS_PER_SEC << "s\n\n";
 }

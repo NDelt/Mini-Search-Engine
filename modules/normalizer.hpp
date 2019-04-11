@@ -5,6 +5,6 @@
 #include <vector>
 #include <string>
 
-std::string Normalizer(std::string& query);
+std::string normalizer(std::string& query);
 
 #endif

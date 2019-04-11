@@ -3,9 +3,9 @@
 
 #include "../modules/normalizer.hpp"
 
-class NormalizerTest {
+class normalizerTest {
 public:
-    void SampleNormalizing() {
+    void sampleNormalizing() {
         std::ifstream reader("../resources/sample_text.txt");
         std::string   convertedStr;
         
@@ -15,15 +15,14 @@ public:
             std::cout << "------------------------------------------------------------\n";
             
             // 노멀라이징 메소드 호출
-            testVtr.push_back(Normalizer(convertedStr));
+            testVtr.push_back(normalizer(convertedStr));
         }
     }
     
-    std::vector<std::string> GetTestVtr() {
+    std::vector<std::string> getTestVtr() {
         return testVtr;
     }
 
 private:
     std::vector<std::string> testVtr;
-    
 };

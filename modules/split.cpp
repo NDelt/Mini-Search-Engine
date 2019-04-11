@@ -1,6 +1,6 @@
 #include "split.hpp"
 
-std::vector<std::string> split_string(std::string& str) {
+std::vector<std::string> splitString(std::string& str) {
     std::vector<std::string> internal;
     
     std::stringstream streamFrom(str); // 문자열 str을 기반으로 문자열 스트림을 생성한다.

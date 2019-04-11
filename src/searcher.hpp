@@ -7,12 +7,15 @@
 #include <algorithm>
 #include <ctime>
 
+// #include <sw/redis++/redis++.h>
+
 #include "queryParser.hpp"
+
 #include "../modules/hashMap.hpp"
 
 class Searcher {
 public:
-    void Search(std::string& searchQuery, HashMap& hashMap);
+    void search(std::string& searchQuery, HashMap& hashMap);
 
 private:
     std::vector<int> searchedDocs;

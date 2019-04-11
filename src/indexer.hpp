@@ -4,6 +4,8 @@
 #include <cstdlib>
 #include <ctime>
 
+// #include <sw/redis++/redis++.h>
+
 #include "queryParser.hpp"
 
 #include "../modules/CSVParser.hpp"
@@ -13,7 +15,7 @@ class Indexer {
 public:
     Indexer() : id(0), title(""), qualification("") {};
     
-    void CreateIndex(const std::string& filePath, HashMap& hashMap);
+    void createIndex(const std::string& filePath, HashMap& hashMap);
 
 private:
     int id;
