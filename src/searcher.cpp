@@ -1,5 +1,10 @@
 #include "searcher.hpp"
 
+/**
+ * 검색기
+ * #) 인자로 주어진 검색어를 토큰 단위로 분리하고, 각각의 토큰에 대한 값 vector를 반환받아 오름차순으로 정렬한 뒤 출력한다.
+ */
+
 void Searcher::search(std::string& searchQuery, HashMap& hashMap) {
     std::vector<std::string> parsedString;
     std::vector<int>         taken;
