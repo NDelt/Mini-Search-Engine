@@ -2,7 +2,7 @@
 #define HASHMAP_HPP
 
 #define HONOR_OFFSET 5
-#define DEFAULT_SIZE 15
+#define DEFAULT_SIZE 100000
 
 #include <iostream>
 #include <limits>
@@ -31,20 +31,18 @@ public:
     
     std::vector<int> getValues(const std::string& key);
     
-    int getRowSize(const int value);
-    
     void remove(const std::string& key, const int value);
     
     int getCurrentRowCount();
 
 protected:
-    std::vector<std::vector<HashSlot>> matrix; // 2차원 해시 테이블
-    
     int hashFunction(const std::string& key, const int totalRowCount);
     
     int stringToInt(const std::string& key) const;
 
 private:
+    std::vector<std::vector<HashSlot>> matrix; // 2차원 해시 테이블
+    
     int currentRowCount;
     int currentSlotCount;
 };

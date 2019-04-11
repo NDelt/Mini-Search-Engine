@@ -91,33 +91,6 @@ std::vector<int> HashMap::getValues(const std::string& key) {
     return ret;
 }
 
-/* value 값이 들어 있는 행 vector의 길이 반환 */
-int HashMap::getRowSize(const int value) {
-    bool valueFound = false;
-    
-    for (int i = 0; i < (int)this->matrix.size(); ++i) {
-        std::vector<HashSlot>& colVtr = this->matrix.at(i);
-        
-        auto itr    = colVtr.begin();
-        auto endItr = colVtr.end();
-        
-        while (itr != endItr) {
-            if ((*itr).getValue() == value) {
-                valueFound = true;
-                break;
-            }
-            
-            ++itr;
-        }
-        
-        if (valueFound) {
-            return this->matrix.at(i).size();
-        }
-    }
-    
-    return 0;
-}
-
 void HashMap::remove(const std::string& key, const int value) {
     int  divider    = DEFAULT_SIZE;
     bool valueFound = false;

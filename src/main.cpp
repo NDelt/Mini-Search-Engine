@@ -23,10 +23,9 @@
 
 int main() {
     HashMap hashMap;
-    
     Indexer indexer;
-    indexer.createIndex("../resources/amazon_jobs.csv", hashMap);
     
+    indexer.createIndex("../resources/amazon_jobs.csv", hashMap);
     Searcher searcher;
     
     while (true) {

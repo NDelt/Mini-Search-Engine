@@ -6,6 +6,7 @@
  * 2) 'BASIC QUALIFICATIONS' 컬럼에 대해 토큰 단위로 문자열 파싱
  * 3) 문자열 파싱 후 반환되는 vector를 순회하며 (토큰, ID) 형식으로 해시 테이블에 데이터 추가
  */
+
 void Indexer::createIndex(const std::string& filePath, HashMap& hashMap) {
     clock_t start, end;
     double  result;
