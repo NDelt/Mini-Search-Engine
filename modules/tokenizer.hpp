@@ -6,13 +6,13 @@
 #include <string>
 #include <vector>
 
-#include "split.hpp"
-
 class Tokenizer {
 public:
     Tokenizer() = delete;
     
     static std::vector<std::string> tokenize(std::string& query);
+    
+    static std::vector<std::string> splitString(std::string& str);
     
     ~Tokenizer() = default;
 };

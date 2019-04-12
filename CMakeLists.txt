@@ -8,7 +8,7 @@ SET(CMAKE_BUILD_TYPE Debug)
 SET(CMAKE_VERBOSE_MAKEFILE TRUE)
 
 SET(SOURCES src/main.cpp src/indexer.cpp src/queryParser.cpp src/searcher.cpp
-    modules/tokenizer.cpp modules/normalizer.cpp modules/hashMap.cpp modules/split.cpp modules/CSVParser.cpp)
+    modules/tokenizer.cpp modules/normalizer.cpp modules/hashMap.cpp modules/CSVParser.cpp)
 
 ADD_EXECUTABLE(main ${SOURCES})
 
