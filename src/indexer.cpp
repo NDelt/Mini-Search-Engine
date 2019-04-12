@@ -35,13 +35,13 @@ void Indexer::createIndex(const std::string& filePath, HashMap& hashMap) {
         
         this->id            = std::atoi(row[0].c_str());
         this->title         = row[1];
-        this->qualification = row[5];
+        this->qualif = row[5];
         
         std::cout << "* ID : " << this->id << "\n";
         std::cout << "* Job Title : " << this->title << "\n";
-        std::cout << "* Qualifications : " << this->qualification << "\n\n";
+        std::cout << "* Qualifications : " << this->qualif << "\n\n";
         
-        std::vector<std::string> retVec = QueryParser::parse(this->qualification);
+        std::vector<std::string> retVec = QueryParser::parse(this->qualif);
         
         int interCount = 1;
         

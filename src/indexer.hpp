@@ -13,7 +13,7 @@
 
 class Indexer {
 public:
-    Indexer() : id(0), title(""), qualification("") {};
+    Indexer() : id(0), title(""), qualif("") {};
     
     void createIndex(const std::string& filePath, HashMap& hashMap);
 
@@ -21,7 +21,7 @@ private:
     int id;
     
     std::string title;
-    std::string qualification;
+    std::string qualif;
 };
 
 #endif
