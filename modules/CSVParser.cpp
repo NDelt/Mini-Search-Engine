@@ -7,7 +7,7 @@
  * #) 컬럼 내부의 강조 문자열(이중 큰 따옴표, ""..."") 인식 가능
  */
 
-std::vector<std::vector<std::string>> parseCSV(const std::string& filePath) {
+std::vector<std::vector<std::string>> CSVParser::parse(const std::string& filePath) {
     std::fstream reader;
     reader.open(filePath);
     

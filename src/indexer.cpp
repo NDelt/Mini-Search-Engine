@@ -18,7 +18,7 @@ void Indexer::createIndex(const std::string& filePath, HashMap& hashMap) {
     
     start = clock();
     std::cout << "* File path : " << "\"" << filePath << "\"\n";
-    std::vector<std::vector<std::string>> matrix = parseCSV(filePath);
+    std::vector<std::vector<std::string>> matrix = CSVParser::parse(filePath);
     end = clock();
     
     result = (double)(end - start);

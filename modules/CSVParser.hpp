@@ -7,6 +7,13 @@
 #include <fstream>
 #include <sstream>
 
-std::vector<std::vector<std::string>> parseCSV(const std::string& filePath);
+class CSVParser {
+public:
+    CSVParser() = delete;
+    
+    static std::vector<std::vector<std::string>> parse(const std::string& filePath);
+    
+    ~CSVParser() = default;
+};
 
 #endif

@@ -1,6 +1,6 @@
 #include "normalizer.hpp"
 
-std::string normalizer(std::string& query) {
+std::string Normalizer::normalize(std::string& query) {
     std::string retStr;
     
     int removeBegin = 0;

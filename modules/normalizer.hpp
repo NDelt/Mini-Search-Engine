@@ -5,6 +5,13 @@
 #include <vector>
 #include <string>
 
-std::string normalizer(std::string& query);
+class Normalizer {
+public:
+    Normalizer() = delete;
+    
+    static std::string normalize(std::string& query);
+    
+    ~Normalizer() = default;
+};
 
 #endif

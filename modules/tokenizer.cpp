@@ -1,8 +1,6 @@
-#include <sstream>
-
 #include "tokenizer.hpp"
 
-std::vector<std::string> tokenizer(std::string& query) {
+std::vector<std::string> Tokenizer::tokenize(std::string& query) {
     int spaceBegin  = 0;
     int spaceIdx    = 0;
     int queryLength = query.length();

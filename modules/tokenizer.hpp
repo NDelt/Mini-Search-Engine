@@ -2,11 +2,19 @@
 #define STRINGSPLIT_HPP
 
 #include <iostream>
-#include <vector>
+#include <sstream>
 #include <string>
+#include <vector>
 
 #include "split.hpp"
 
-std::vector<std::string> tokenizer(std::string& query);
+class Tokenizer {
+public:
+    Tokenizer() = delete;
+    
+    static std::vector<std::string> tokenize(std::string& query);
+    
+    ~Tokenizer() = default;
+};
 
 #endif
