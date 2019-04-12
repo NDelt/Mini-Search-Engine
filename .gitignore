@@ -1,11 +1,9 @@
 # CLion configurations
+.idea/
+out/
 META-INF/
 cmake-build-debug-wsl/CMakeFiles/
 cmake-build-debug-wsl/CMakeCache.txt
 cmake-build-debug-wsl/Makefile
 cmake-build-debug-wsl/WebIndexer_CppModule.cbp
 cmake-build-debug-wsl/cmake_install.cmake
-out/
-.idea/workspace.xml
-.idea/usage.statistics.xml
-.idea/tasks.xml
