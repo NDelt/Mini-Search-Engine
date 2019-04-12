@@ -18,7 +18,7 @@ Ctrl+C
 redis-cli
 ```
 #### (4) 리소스 파일 Redis DB에 업로드하기
-Failed :(
+
 
 #### (5) 바이너리 사용하기
 ```
