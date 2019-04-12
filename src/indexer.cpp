@@ -25,12 +25,12 @@ void Indexer::createIndex(const std::string& filePath, HashMap& hashMap) {
     
     std::cout << ">>>>> CSV parsing complete. [" << result / CLOCKS_PER_SEC << "s]\n\n";
     
-    int csvParsingCount = 1;
+    int wordsParsingCount = 1;
     
     // 사용하는 CSV 파일 컬럼: ID(0), TITLE(1), BASIC QUALIFICATIONS(5)
     // 토큰 분석 대상 컬럼: BASIC QUALIFICATIONS(5)
     for (const std::vector<std::string>& row : matrix) {
-        std::cout << ">>>>> (" << csvParsingCount << ") Parsing words...\n";
+        std::cout << ">>>>> (" << wordsParsingCount << ") Parsing words...\n";
         start = clock();
         
         this->id     = std::atoi(row[0].c_str());
@@ -65,11 +65,10 @@ void Indexer::createIndex(const std::string& filePath, HashMap& hashMap) {
         end    = clock();
         result = (double)(end - start);
         
-        std::cout << ">>>>> (" << csvParsingCount << ") CSV parsing complete. [" << result / CLOCKS_PER_SEC << "s]\n\n";
+        std::cout << ">>>>> (" << wordsParsingCount << ") Words parsing complete. [" << result / CLOCKS_PER_SEC << "s]\n\n";
         
-        ++csvParsingCount;
+        ++wordsParsingCount;
     }
     
-    std::cout << ">>>>> Word parsing complete.\n";
     std::cout << ">>>>> Inverted index table is created : " << hashMap.getCurrentRowCount() << " rows.\n\n";
 }

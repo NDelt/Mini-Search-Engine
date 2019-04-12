@@ -6,9 +6,9 @@
 
 // #include <sw/redis++/redis++.h>
 
+#include "csvParser.hpp"
 #include "queryParser.hpp"
 
-#include "../modules/CSVParser.hpp"
 #include "../modules/hashMap.hpp"
 
 class Indexer {
