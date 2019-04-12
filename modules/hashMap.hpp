@@ -6,8 +6,8 @@
 
 #include <iostream>
 #include <limits>
-#include <vector>
 #include <string>
+#include <vector>
 
 class HashSlot {
 public:
