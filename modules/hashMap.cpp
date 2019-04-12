@@ -132,7 +132,7 @@ void HashMap::remove(const std::string& key, const int value) {
     }
 }
 
-int HashMap::getCurrentRowCount() {
+int HashMap::getCurrentRowCount() const {
     return this->currentRowCount;
 }
 

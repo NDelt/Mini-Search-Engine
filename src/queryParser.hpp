@@ -15,7 +15,11 @@
 
 class QueryParser {
 public:
+    QueryParser() = delete;
+    
     static std::vector<std::string> parse(std::string& query);
+    
+    ~QueryParser() = default;
 };
 
 #endif

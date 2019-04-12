@@ -16,6 +16,8 @@ public:
     Indexer() : id(0), title(""), qualif("") {};
     
     void createIndex(const std::string& filePath, HashMap& hashMap);
+    
+    ~Indexer() = default;
 
 private:
     int id;

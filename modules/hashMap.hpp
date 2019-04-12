@@ -11,11 +11,15 @@
 
 class HashSlot {
 public:
+    HashSlot() = delete;
+    
     HashSlot(const std::string& pKey, const int pValue) : key(pKey), value(pValue) {};
     
     std::string getKey() const;
     
     int getValue() const;
+    
+    ~HashSlot() = default;
 
 private:
     std::string key;
@@ -33,7 +37,9 @@ public:
     
     void remove(const std::string& key, const int value);
     
-    int getCurrentRowCount();
+    int getCurrentRowCount() const;
+    
+    ~HashMap() = default;
 
 protected:
     int hashFunction(const std::string& key, const int totalRowCount);

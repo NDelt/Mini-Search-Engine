@@ -33,8 +33,8 @@ void Indexer::createIndex(const std::string& filePath, HashMap& hashMap) {
         std::cout << ">>>>> (" << csvParsingCount << ") Parsing words...\n";
         start = clock();
         
-        this->id            = std::atoi(row[0].c_str());
-        this->title         = row[1];
+        this->id     = std::atoi(row[0].c_str());
+        this->title  = row[1];
         this->qualif = row[5];
         
         std::cout << "* ID : " << this->id << "\n";
@@ -54,7 +54,7 @@ void Indexer::createIndex(const std::string& filePath, HashMap& hashMap) {
                 std::cout << "(stopword) / ";
             } else {
                 std::cout << str << " / ";
-                hashMap.add(str, this->id);
+                hashMap.add(str, this->id); // 해시 테이블에 데이터 삽입
             }
             
             ++interCount;

@@ -15,7 +15,11 @@
 
 class Searcher {
 public:
+    Searcher() = default;
+    
     void search(std::string& searchQuery, HashMap& hashMap);
+    
+    ~Searcher() = default;
 
 private:
     std::vector<int> searchedDocs;
