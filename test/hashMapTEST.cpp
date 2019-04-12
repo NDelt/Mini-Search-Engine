@@ -18,8 +18,6 @@ void hashMapTest() {
     hm.add("April", 9);
     hm.add("May", 10);
     
-    std::cout << hm.getRowSize(8) << "\n";
-    
     std::vector<int> ret1 = hm.getValues("February");
     std::vector<int> ret2 = hm.getValues("April");
     std::vector<int> ret3 = hm.getValues("ABCDEFGHIJKLMNOPQRSTUVWXYZ");

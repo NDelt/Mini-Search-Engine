@@ -2,8 +2,8 @@
 #define QUERYPARSER_HPP
 
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
 #include "../modules/normalizer.hpp"
 #include "../modules/tokenizer.hpp"

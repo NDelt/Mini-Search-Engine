@@ -15,7 +15,7 @@ public:
             std::cout << "------------------------------------------------------------\n";
             
             // 토큰 분리 메소드 호출
-            for (const std::string& tempStr : tokenizer(convertedStr)) {
+            for (const std::string& tempStr : Tokenizer::tokenize(convertedStr)) {
                 testVtr.push_back(tempStr);
             }
         }

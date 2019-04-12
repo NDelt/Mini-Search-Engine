@@ -15,7 +15,7 @@ public:
             std::cout << "------------------------------------------------------------\n";
             
             // 노멀라이징 메소드 호출
-            testVtr.push_back(normalizer(convertedStr));
+            testVtr.push_back(Normalizer::normalize(convertedStr));
         }
     }
     

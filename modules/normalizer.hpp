@@ -2,8 +2,8 @@
 #define NORMALIZER_HPP
 
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
 class Normalizer {
 public:
