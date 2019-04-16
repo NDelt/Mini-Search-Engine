@@ -3,13 +3,13 @@
 std::vector<std::string> Tokenizer::tokenize(std::string& query) {
     int spaceBegin  = 0;
     int spaceIdx    = 0;
-    int queryLength = query.length();
+    int queryLength = (int)query.length();
     
     bool spacing = false;
     
     // 공백이 여러 개일 경우, 한 개의 공백만 남기고 모두 제거한다.
     for (int queryIdx = 0; queryIdx < queryLength; ++queryIdx) {
-        const char c = query.at(queryIdx);
+        const char c = query.at((unsigned long)queryIdx);
         
         if (c == ' ') {
             if (spacing) {
@@ -36,7 +36,7 @@ std::vector<std::string> Tokenizer::tokenize(std::string& query) {
             int offset = spaceIdx - spaceBegin;
             
             if (offset >= 2) {
-                query.erase(spaceBegin, offset - 1);
+                query.erase((unsigned long)spaceBegin, (unsigned long)offset - 1);
                 queryIdx = spaceIdx - offset;
             }
             

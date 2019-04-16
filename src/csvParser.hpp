@@ -11,9 +11,9 @@ class CSVParser {
 public:
     CSVParser() = delete;
     
-    static std::vector<std::vector<std::string>> parse(const std::string& filePath);
-    
     ~CSVParser() = default;
+    
+    static std::vector<std::vector<std::string>> parse(const std::string& filePath);
 };
 
 #endif

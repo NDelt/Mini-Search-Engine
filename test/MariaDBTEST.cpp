@@ -7,13 +7,11 @@
 
 #include "mysql_connection.h"
 
-#include "../src/indexer.hpp"
-
 /**
  * Deprecated
  */
 
-void searchMariaDBTest() {
+void MariaDBTest() {
     sql::Driver    * driver = nullptr;
     sql::Connection* conn   = nullptr;
     sql::Statement * stmt   = nullptr;

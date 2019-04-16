@@ -9,9 +9,9 @@ class Normalizer {
 public:
     Normalizer() = delete;
     
-    static std::string normalize(std::string& query);
-    
     ~Normalizer() = default;
+    
+    static std::string normalize(std::string& query);
 };
 
 #endif

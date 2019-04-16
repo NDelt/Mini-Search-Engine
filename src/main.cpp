@@ -16,17 +16,17 @@
 
 #include <iostream>
 
-#include "indexer.hpp"
-#include "searcher.hpp"
+#include "tableIndexer.hpp"
+#include "tableSearcher.hpp"
 
 #define MAX_QUERY_SIZE 1000
 
 int main() {
     HashMap hashMap;
-    Indexer indexer;
+    TableIndexer tableIndexer;
     
-    indexer.createIndex("../resources/amazon_jobs.csv", hashMap);
-    Searcher searcher;
+    tableIndexer.createIndex("../resources/amazon_jobs.csv", hashMap);
+    TableSearcher tableSearcher;
     
     while (true) {
         std::cout << "Input queries: (type 'exitsearch' to exit) ";
@@ -40,7 +40,7 @@ int main() {
             break;
         }
         
-        searcher.search(searchQuery, hashMap);
+        tableSearcher.search(searchQuery, hashMap);
     }
     
     std::_Exit(EXIT_SUCCESS);

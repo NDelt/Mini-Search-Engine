@@ -11,13 +11,13 @@
 
 #include "../modules/hashMap.hpp"
 
-class Indexer {
+class TableIndexer {
 public:
-    Indexer() : id(0), title(""), qualif("") {};
+    TableIndexer() : id(0), title(""), qualif("") {};
+    
+    ~TableIndexer() = default;
     
     void createIndex(const std::string& filePath, HashMap& hashMap);
-    
-    ~Indexer() = default;
 
 private:
     int id;

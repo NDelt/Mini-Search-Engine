@@ -36,12 +36,12 @@ std::vector<std::vector<std::string>> CSVParser::parse(const std::string& filePa
         
         // 한 줄에서 한 단어씩 읽기
         for (int queryIdx = 0; queryIdx < (int)line.size(); ++queryIdx) {
-            const char c = line.at(queryIdx);
+            const char c = line.at((unsigned long)queryIdx);
             
             switch (c) {
                 case '"':
                     /* queryIdx에 +1을 하기 전 line.size()에 대한 경계값 검사 */
-                    if (queryIdx + 1 < (int)line.size() && line.at(queryIdx + 1) == '"') {
+                    if (queryIdx + 1 < (int)line.size() && line.at((unsigned long)queryIdx + 1) == '"') {
                         twiceQuotes = true;
                         goto SKIPPED; // 따옴표가 연속으로 두 번 나타나는 경우, 컬럼 단위가 아니므로 스킵
                     }
@@ -57,13 +57,13 @@ std::vector<std::vector<std::string>> CSVParser::parse(const std::string& filePa
                         // startQuoteIdx의 값: 0
                         // 마지막 endQuoteIdx의 값: 8
                         // 따옴표 내 문자 개수: endQuoteIdx - startQuoteIdx = 8
-                        row.push_back(line.substr(startQuoteIdx + 1, endQuoteIdx - startQuoteIdx));
+                        row.push_back(line.substr((unsigned long)startQuoteIdx + 1, (unsigned long)endQuoteIdx - startQuoteIdx));
                     }
                     break;
                 case ',':
                     if (inQuotes) {
                         goto SKIPPED; // 따옴표 안쪽일 경우 스킵
-                    } else if (line.at(queryIdx - 1) == '"') {
+                    } else if (line.at((unsigned long)queryIdx - 1) == '"') {
                         break; // 닫는 따옴표 뒤에 구분자(,)가 나타나는 경우, 이미 문자열을 저장한 상황이므로 switch 블록 탈출
                     }
                     inColumn = false;
@@ -73,7 +73,7 @@ std::vector<std::vector<std::string>> CSVParser::parse(const std::string& filePa
                     // startFieldIdx의 값: 0
                     // 마지막 endFieldIdx의 값: 7
                     // 구분자 이전의 문자 개수: endFieldIdx - startFieldIdx + 1
-                    row.push_back(line.substr(startFieldIdx, endFieldIdx - startFieldIdx + 1));
+                    row.push_back(line.substr((unsigned long)startFieldIdx, (unsigned long)(endFieldIdx - startFieldIdx + 1)));
                     break;
                 default:
                 SKIPPED:

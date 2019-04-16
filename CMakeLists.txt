@@ -7,7 +7,7 @@ SET(CMAKE_CXX_FLAGS "-std=c++17 -m64 -pedantic -Wall -Wextra -Werror")
 SET(CMAKE_BUILD_TYPE Debug)
 SET(CMAKE_VERBOSE_MAKEFILE TRUE)
 
-SET(SOURCES src/main.cpp src/indexer.cpp src/csvParser.cpp src/queryParser.cpp src/searcher.cpp
+SET(SOURCES src/main.cpp src/tableIndexer.cpp src/csvParser.cpp src/queryParser.cpp src/tableSearcher.cpp
     modules/tokenizer.cpp modules/normalizer.cpp modules/hashMap.cpp)
 
 ADD_EXECUTABLE(main ${SOURCES})

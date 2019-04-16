@@ -13,13 +13,13 @@ class HashSlot {
 public:
     HashSlot() = delete;
     
+    ~HashSlot() = default;
+    
     HashSlot(const std::string& pKey, const int pValue) : key(pKey), value(pValue) {};
     
     std::string getKey() const;
     
     int getValue() const;
-    
-    ~HashSlot() = default;
 
 private:
     std::string key;

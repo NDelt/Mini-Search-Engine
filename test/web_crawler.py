@@ -180,28 +180,6 @@ def reassemble_address(scheme, href):
     return href
 
 
-# ------------------------------- Deprecated ------------------------------- #
-def split_address(addr):
-    address_parts = None
-    
-    if addr.startswith("//"):  # '//'로 시작하는 링크일 때
-        address_parts = addr[2:].split("/")
-        if "www" in address_parts[0]:
-            address_parts = address_parts[0].replace("www.", "")
-    elif "https" in addr:  # 'https://'로 시작하는 링크일 때
-        address_parts = addr.replace("https://", "").split("/")
-        if "www" in address_parts[0]:
-            address_parts = address_parts[0].replace("www.", "")
-    elif "http" in addr:  # 'http://'로 시작하는 링크일 때
-        address_parts = addr.replace("http://", "").split("/")
-        if "www" in address_parts[0]:
-            address_parts = address_parts[0].replace("www.", "")
-    elif "www" in addr:  # 'www'로 시작하는 링크일 때
-        address_parts = addr.replace("www.", "").split("/")
-    
-    return address_parts  # 프로토콜과 호스트가 제거된 도메인 리스트를 반환한다.
-
-
 def get_random_external_links(starting_page):
     try:
         driver.get(starting_page)
@@ -218,6 +196,9 @@ def get_random_external_links(starting_page):
         print("--------------------------------------------------")
         return -1
     
+    """
+    URI 파싱: <scheme>://<netloc>/<path>;<params>?<query>#<fragment>
+    """
     scheme = urlparse(starting_page).scheme
     netloc = urlparse(starting_page).netloc
     
@@ -260,10 +241,10 @@ def get_random_external_links(starting_page):
             # 따라서 이를 식으로 표현하면 "str(fetch[0][0])"이 된다.
             
             if selected_tuple.startswith("b'"):
-                selected_tuple = selected_tuple[2:]
+                selected_tuple = selected_tuple[2:]  # 2번 인덱스 이전까지의 원소를 제거
             
             if selected_tuple.endswith("'"):
-                selected_tuple = selected_tuple[:-1]
+                selected_tuple = selected_tuple[:-1]  # -1번(마지막) 인덱스부터 이후의 원소를 제거
             
             return selected_tuple
     

@@ -17,14 +17,14 @@ int HashSlot::getValue() const {
  */
 
 void HashMap::add(const std::string& key, const int value) {
-    int rowIdx = hashFunction(key, this->matrix.size());
+    int rowIdx = hashFunction(key, (int)this->matrix.size());
     
     if (rowIdx == -1) {
         return;
     }
     
     if (rowIdx < (int)this->matrix.size()) {
-        std::vector<HashSlot>& colVtr = this->matrix.at(rowIdx);
+        std::vector<HashSlot>& colVtr = this->matrix.at((unsigned long)rowIdx);
         
         auto itr    = colVtr.begin();
         auto endItr = colVtr.end();
@@ -43,17 +43,17 @@ void HashMap::add(const std::string& key, const int value) {
     }
     
     HashSlot slot(key, value);
-    this->matrix.at(rowIdx).push_back(slot);
+    this->matrix.at((unsigned long)rowIdx).push_back(slot);
     
     ++(this->currentSlotCount);
     
-    if (this->matrix.at(rowIdx).size() == 1) {
+    if (this->matrix.at((unsigned long)rowIdx).size() == 1) {
         ++(this->currentRowCount); // 특정 vector에 첫 번째 슬롯이 추가될 때 사용 중인 행 수를 1 증가시킨다.
     }
 }
 
 std::vector<int> HashMap::getValues(const std::string& key) {
-    int matrixSize = this->matrix.size();
+    int matrixSize = (int)this->matrix.size();
     int divider    = DEFAULT_SIZE;
     
     bool valueFound = false;
@@ -67,7 +67,7 @@ std::vector<int> HashMap::getValues(const std::string& key) {
             return ret;
         }
         
-        std::vector<HashSlot>& colVtr = this->matrix.at(rowIdx); // colVtr이 matrix vector의 rowIdx 인덱스에 위치한 vector를 참조한다.
+        std::vector<HashSlot>& colVtr = this->matrix.at((unsigned long)rowIdx); // colVtr이 matrix vector의 rowIdx 인덱스에 위치한 vector를 참조한다.
         
         auto itr    = colVtr.begin();
         auto endItr = colVtr.end();
@@ -103,7 +103,7 @@ void HashMap::remove(const std::string& key, const int value) {
             return;
         }
         
-        std::vector<HashSlot>& colVtr = this->matrix.at(rowIdx);
+        std::vector<HashSlot>& colVtr = this->matrix.at((unsigned long)rowIdx);
         
         auto itr    = colVtr.begin();
         auto endItr = colVtr.end();
@@ -163,7 +163,7 @@ int HashMap::hashFunction(const std::string& key, const int totalRowCount) {
     int initialRet = ret;
     
     while (true) {
-        std::vector<HashSlot>& colVtr = this->matrix.at(ret);
+        std::vector<HashSlot>& colVtr = this->matrix.at((unsigned long)ret);
         auto itr = colVtr.begin();
         
         // 해시 값에 해당하는 vector에 이미 원소가 저장되어 있고, 그 원소의 키가 인자로 주어진 키와 다를 경우 다시 해싱한다.

@@ -1,4 +1,4 @@
-#include "indexer.hpp"
+#include "tableIndexer.hpp"
 
 /**
  * 역색인 테이블 생성기
@@ -7,7 +7,7 @@
  * 3) 문자열 파싱 후 반환되는 vector를 순회하며 (토큰, ID) 형식으로 해시 테이블에 데이터 추가
  */
 
-void Indexer::createIndex(const std::string& filePath, HashMap& hashMap) {
+void TableIndexer::createIndex(const std::string& filePath, HashMap& hashMap) {
     clock_t start, end;
     double  result;
     

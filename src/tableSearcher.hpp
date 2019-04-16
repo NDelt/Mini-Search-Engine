@@ -13,13 +13,13 @@
 
 #include "../modules/hashMap.hpp"
 
-class Searcher {
+class TableSearcher {
 public:
-    Searcher() = default;
+    TableSearcher() = default;
+    
+    ~TableSearcher() = default;
     
     void search(std::string& searchQuery, HashMap& hashMap);
-    
-    ~Searcher() = default;
 
 private:
     std::vector<int> searchedDocs;
