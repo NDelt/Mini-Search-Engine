@@ -23,9 +23,10 @@
 
 int main() {
     HashMap hashMap;
-    TableIndexer tableIndexer;
     
+    TableIndexer tableIndexer;
     tableIndexer.createIndex("../resources/amazon_jobs.csv", hashMap);
+    
     TableSearcher tableSearcher;
     
     while (true) {
@@ -43,5 +44,5 @@ int main() {
         tableSearcher.search(searchQuery, hashMap);
     }
     
-    std::_Exit(EXIT_SUCCESS);
+    return 0;
 }

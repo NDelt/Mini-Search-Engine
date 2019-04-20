@@ -15,7 +15,7 @@ std::vector<std::vector<std::string>> CSVParser::parse(const std::string& filePa
     
     if (reader.fail()) {
         std::cout << "Error - '" << filePath << "' does not exist!\n";
-        std::_Exit(EXIT_FAILURE);
+        std::exit(EXIT_FAILURE);
     }
     
     std::string line;

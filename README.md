@@ -5,7 +5,7 @@
 
 ### 개발 환경
 * [JetBrains CLion](https://www.jetbrains.com/clion/?fromMenu)
-* Windows Subsystem for Linux - Ubuntu
+* Windows Subsystem for Linux - Ubuntu 18.04
 * GCC 7.3.0
 * CMake 3.10.2
 
