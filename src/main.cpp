@@ -25,7 +25,7 @@ int main() {
     HashMap hashMap;
     
     TableIndexer tableIndexer;
-    tableIndexer.createIndex("../resources/sample.csv", hashMap);
+    tableIndexer.createIndex("../resources/amazon_jobs.csv", hashMap);
     
     TableSearcher tableSearcher;
     
@@ -37,7 +37,7 @@ int main() {
         std::string searchQuery(temp);
         
         if (searchQuery == "exitsearch") {
-            std::cout << "\n>>>>> Shut down search engine...\n";
+            std::cout << "===== Shut down search engine... =====\n";
             break;
         }
         

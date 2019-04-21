@@ -64,6 +64,7 @@ std::vector<int> HashMap::getValues(const std::string& key) {
         int rowIdx = hashFunction(key, divider);
         
         if (rowIdx == -1) {
+            std::cout << "'" << key << "' could not be parsed. Maybe it is not an ASCII word.";
             return ret;
         }
         
@@ -85,7 +86,7 @@ std::vector<int> HashMap::getValues(const std::string& key) {
     }
     
     if (!valueFound) {
-        std::cout << "No matching values for '" << key << "'\n";
+        std::cout << "No matching values for '" << key << "'.";
     }
     
     return ret;
@@ -99,7 +100,7 @@ void HashMap::remove(const std::string& key, const int value) {
         int rowIdx = hashFunction(key, divider);
         
         if (rowIdx == -1) {
-            std::cout << "'" << key << "' is cannot be parsed.\n";
+            std::cout << "'" << key << "' could not be parsed. Maybe it is not an ASCII word.";
             return;
         }
         
@@ -128,7 +129,7 @@ void HashMap::remove(const std::string& key, const int value) {
     }
     
     if (!valueFound) {
-        std::cout << "No matching values for '" << key << "'\n";
+        std::cout << "No matching values for '" << key << "'.";
     }
 }
 
