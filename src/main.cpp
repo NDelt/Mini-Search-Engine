@@ -16,8 +16,8 @@
 
 #include <iostream>
 
-#include "tableIndexer.hpp"
-#include "tableSearcher.hpp"
+#include "TableIndexer.hpp"
+#include "TableSearcher.hpp"
 
 #define MAX_QUERY_SIZE 1000
 
@@ -25,7 +25,7 @@ int main() {
     HashMap hashMap;
     
     TableIndexer tableIndexer;
-    tableIndexer.createIndex("../resources/amazon_jobs.csv", hashMap);
+    tableIndexer.createIndex("../resources/sample.csv", hashMap);
     
     TableSearcher tableSearcher;
     

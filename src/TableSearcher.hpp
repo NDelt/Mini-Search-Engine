@@ -7,11 +7,10 @@
 #include <algorithm>
 #include <ctime>
 
-// #include <sw/redis++/redis++.h>
+#include "QueryParser.hpp"
 
-#include "queryParser.hpp"
-
-#include "../modules/hashMap.hpp"
+#include "../modules/Comparator.hpp"
+#include "../modules/HashMap.hpp"
 
 class TableSearcher {
 public:
@@ -21,8 +20,15 @@ public:
     
     void search(std::string& searchQuery, HashMap& hashMap);
 
+protected:
+    std::vector<int> findDuplicate(const std::vector<int>& array);
+    
+    void temporalSort(std::vector<int>& array);
+
 private:
     std::vector<int> searchedDocs;
+    
+    bool isThereDuplicate = false;
 };
 
 #endif

@@ -1,11 +1,11 @@
 #include <iostream>
 #include <fstream>
 
-#include "../modules/tokenizer.hpp"
+#include "../modules/Normalizer.hpp"
 
-class tokenizerTest {
+class normalizerTest {
 public:
-    void sampleTokenizing() {
+    void sampleNormalizing() {
         std::ifstream reader("../resources/sample_text.txt");
         std::string   convertedStr;
         
@@ -14,10 +14,8 @@ public:
             std::cout << convertedStr << "\n";
             std::cout << "------------------------------------------------------------\n";
             
-            // 토큰 분리 메소드 호출
-            for (const std::string& tempStr : Tokenizer::tokenize(convertedStr)) {
-                testVtr.push_back(tempStr);
-            }
+            // 노멀라이징 메소드 호출
+            testVtr.push_back(Normalizer::normalize(convertedStr));
         }
     }
     

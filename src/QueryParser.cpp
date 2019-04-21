@@ -1,4 +1,4 @@
-#include "queryParser.hpp"
+#include "QueryParser.hpp"
 
 std::vector<std::string> QueryParser::parse(std::string& query) {
     std::vector<std::string> retVec;

@@ -13,9 +13,9 @@ class HashSlot {
 public:
     HashSlot() = delete;
     
-    ~HashSlot() = default;
-    
     HashSlot(const std::string& pKey, const int pValue) : key(pKey), value(pValue) {};
+    
+    ~HashSlot() = default;
     
     std::string getKey() const;
     
@@ -31,6 +31,8 @@ class HashMap {
 public:
     HashMap() : matrix(DEFAULT_SIZE), currentRowCount(0), currentSlotCount(0) {};
     
+    ~HashMap() = default;
+    
     void add(const std::string& key, const int value);
     
     std::vector<int> getValues(const std::string& key);
@@ -38,8 +40,6 @@ public:
     void remove(const std::string& key, const int value);
     
     int getCurrentRowCount() const;
-    
-    ~HashMap() = default;
 
 protected:
     int hashFunction(const std::string& key, const int totalRowCount);
@@ -50,6 +50,7 @@ private:
     std::vector<std::vector<HashSlot>> matrix; // 2차원 해시 테이블
     
     int currentRowCount;
+    
     int currentSlotCount;
 };
 

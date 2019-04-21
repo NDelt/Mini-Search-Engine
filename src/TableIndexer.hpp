@@ -4,12 +4,10 @@
 #include <cstdlib>
 #include <ctime>
 
-// #include <sw/redis++/redis++.h>
+#include "CSVParser.hpp"
+#include "QueryParser.hpp"
 
-#include "csvParser.hpp"
-#include "queryParser.hpp"
-
-#include "../modules/hashMap.hpp"
+#include "../modules/HashMap.hpp"
 
 class TableIndexer {
 public:

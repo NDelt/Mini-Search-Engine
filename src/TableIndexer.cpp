@@ -1,4 +1,4 @@
-#include "tableIndexer.hpp"
+#include "TableIndexer.hpp"
 
 /**
  * 역색인 테이블 생성기

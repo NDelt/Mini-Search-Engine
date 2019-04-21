@@ -1,4 +1,4 @@
-#include "normalizer.hpp"
+#include "Normalizer.hpp"
 
 std::string Normalizer::normalize(std::string& query) {
     std::string retStr;

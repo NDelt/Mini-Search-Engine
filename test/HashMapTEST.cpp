@@ -2,7 +2,7 @@
 #include <fstream>
 #include <vector>
 
-#include "../modules/hashMap.hpp"
+#include "../modules/HashMap.hpp"
 
 void hashMapTest() {
     HashMap hm;

@@ -1,4 +1,4 @@
-#include "tokenizer.hpp"
+#include "Tokenizer.hpp"
 
 std::vector<std::string> Tokenizer::tokenize(std::string& query) {
     int spaceBegin  = 0;

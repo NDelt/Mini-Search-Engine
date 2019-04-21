@@ -1,4 +1,4 @@
-#include "hashMap.hpp"
+#include "HashMap.hpp"
 
 /**
  * 해시 슬롯 클래스
@@ -85,7 +85,7 @@ std::vector<int> HashMap::getValues(const std::string& key) {
     }
     
     if (!valueFound) {
-        std::cout << "No matching values for '" << key << "'";
+        std::cout << "No matching values for '" << key << "'\n";
     }
     
     return ret;
@@ -128,7 +128,7 @@ void HashMap::remove(const std::string& key, const int value) {
     }
     
     if (!valueFound) {
-        std::cout << "No matching values for '" << key << "'";
+        std::cout << "No matching values for '" << key << "'\n";
     }
 }
 
