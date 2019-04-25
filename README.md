@@ -14,9 +14,9 @@
 - Fork repository(우측 상단의 'Fork' 버튼 클릭)
 - git clone git@github.com:(Username)/Mini-SearchEngine.git
 - sudo chmod -R 755 Mini-SearchEngine/
-- cd cmake-build-debug-wsl/
+- cd cmake-build-release-wsl/
 - ./main
-- 인덱싱(약 1분 소요) 완료 후 검색어 입력(ex: golang, hadoop, haskell code, spark, ...)
+- 인덱싱(약 20초 소요) 완료 후 검색어 입력(ex: golang, hadoop, haskell code, spark, ...)
 >> 입력한 검색어를 포함하는 CSV 파일의 레코드 ID를 오름차순으로 출력
 >> 여러 단어로 된 검색어를 입력했을 경우, 공통 ID를 우선하여 출력
 ```

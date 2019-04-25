@@ -7,3 +7,8 @@ cmake-build-debug-wsl/CMakeCache.txt
 cmake-build-debug-wsl/Makefile
 cmake-build-debug-wsl/WebIndexer_CppModule.cbp
 cmake-build-debug-wsl/cmake_install.cmake
+cmake-build-release-wsl/CMakeFiles/
+cmake-build-release-wsl/CMakeCache.txt
+cmake-build-release-wsl/Makefile
+cmake-build-release-wsl/WebIndexer_CppModule.cbp
+cmake-build-release-wsl/cmake_install.cmake
