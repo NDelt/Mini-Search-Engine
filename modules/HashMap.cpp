@@ -26,7 +26,7 @@ void HashMap::add(const std::string& key, const int value) {
     if (rowIdx < (int)this->matrix.size()) {
         std::vector<HashSlot>& colVtr = this->matrix.at((unsigned long)rowIdx);
         
-        auto itr    = colVtr.begin();
+        auto itr = colVtr.begin();
         auto endItr = colVtr.end();
         
         while (itr != endItr) {
@@ -38,8 +38,9 @@ void HashMap::add(const std::string& key, const int value) {
         }
     }
     
+    // 해시 테이블의 행 수는 기본값 100000(십만)부터 시작하여, 모든 행이 다 찼을 경우 초기 사이즈와 동일한 폭으로 늘어난다.
     if (rowIdx >= (int)this->matrix.size()) {
-        this->matrix.resize(this->matrix.size() + DEFAULT_SIZE); // 해시 테이블의 행 수는 기본값 100000(십만)부터 시작하여 초기 사이즈와 동일한 폭으로 늘어난다.
+        this->matrix.resize(this->matrix.size() + DEFAULT_SIZE);
     }
     
     HashSlot slot(key, value);
@@ -54,7 +55,7 @@ void HashMap::add(const std::string& key, const int value) {
 
 std::vector<int> HashMap::getValues(const std::string& key) {
     int matrixSize = (int)this->matrix.size();
-    int divider    = DEFAULT_SIZE;
+    int divider = DEFAULT_SIZE;
     
     bool valueFound = false;
     
@@ -70,7 +71,7 @@ std::vector<int> HashMap::getValues(const std::string& key) {
         
         std::vector<HashSlot>& colVtr = this->matrix.at((unsigned long)rowIdx); // colVtr이 matrix vector의 rowIdx 인덱스에 위치한 vector를 참조한다.
         
-        auto itr    = colVtr.begin();
+        auto itr = colVtr.begin();
         auto endItr = colVtr.end();
         
         while (itr != endItr) {
@@ -93,7 +94,7 @@ std::vector<int> HashMap::getValues(const std::string& key) {
 }
 
 void HashMap::remove(const std::string& key, const int value) {
-    int  divider    = DEFAULT_SIZE;
+    int divider = DEFAULT_SIZE;
     bool valueFound = false;
     
     while (divider <= (int)this->matrix.size()) {
@@ -106,7 +107,7 @@ void HashMap::remove(const std::string& key, const int value) {
         
         std::vector<HashSlot>& colVtr = this->matrix.at((unsigned long)rowIdx);
         
-        auto itr    = colVtr.begin();
+        auto itr = colVtr.begin();
         auto endItr = colVtr.end();
         
         while (itr != endItr) {
@@ -138,9 +139,9 @@ int HashMap::getCurrentRowCount() const {
 }
 
 int HashMap::hashFunction(const std::string& key, const int totalRowCount) {
-    int ret     = -1;
+    int ret = -1;
     int tempKey = 0;
-    int offset  = 1;
+    int offset = 1;
     
     // 현재 사용 중인 vector의 개수가 100000의 배수라면 테이블의 모든 행이 가득 찬 것이므로, vector의 개수를 인덱스로 지정한다.(= 다음 100000개의 첫 번째 행)
     if (this->currentRowCount % DEFAULT_SIZE == 0) {

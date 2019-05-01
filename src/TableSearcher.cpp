@@ -131,6 +131,7 @@ void TableSearcher::temporalSort(std::vector<int>& array) {
     
     // sortByFreq()를 std::sort()의 정렬 기준 함수로 전달하여 정렬을 수행한다.
     // sortByFreq() 함수는 count 값이 작은 원소를 앞쪽으로 정렬한다. 따라서 count 값이 -1인 원소들은 전부 vector의 앞쪽에 오게 된다.
+    // std::sort()는 정렬 기준을 설정하는 콜백 함수가 true를 반환하면 첫 번째 매개변수가 두 번째 매개변수보다 앞서도록 정렬한다.
     std::sort(compArr.begin(), compArr.end(), Comparator::sortByFreq);
     
     // 이 temporalSort() 함수의 목적은 count의 값이 큰 순으로, count가 같을 경우 index 값이 작은 순으로 array 배열을 정렬하는 것이다.
