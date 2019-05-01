@@ -143,7 +143,8 @@ int HashMap::hashFunction(const std::string& key, const int totalRowCount) {
     int tempKey = 0;
     int offset = 1;
     
-    // 현재 사용 중인 vector의 개수가 100000의 배수라면 테이블의 모든 행이 가득 찬 것이므로, vector의 개수를 인덱스로 지정한다.(= 다음 100000개의 첫 번째 행)
+    // 현재 사용 중인 vector의 개수가 100000의 배수라면 테이블의 모든 행이 가득 찬 것이므로,
+    // vector의 개수를 인덱스로 지정한다.(= 다음 100000개의 첫 번째 행)
     if (this->currentRowCount % DEFAULT_SIZE == 0) {
         ret = this->currentRowCount;
         return ret;
