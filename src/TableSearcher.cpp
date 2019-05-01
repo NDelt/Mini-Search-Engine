@@ -7,12 +7,12 @@
 
 void TableSearcher::search(std::string& searchQuery, HashMap& hashMap) {
     std::vector<std::string> parsedString;
-    std::vector<int>         taken;
+    std::vector<int> taken;
     
     int wordCount = 0;
     
     clock_t start, end;
-    double  result;
+    double result;
     
     std::cout << std::fixed;
     std::cout.precision(4);
@@ -22,7 +22,7 @@ void TableSearcher::search(std::string& searchQuery, HashMap& hashMap) {
     if (searchQuery.length() == 1) {
         std::cout << "1-letter word could not be searched.\n";
         
-        end    = clock();
+        end = clock();
         result = (double)(end - start);
         
         std::cout << ">>>>> " << result / CLOCKS_PER_SEC << "s\n\n";
@@ -64,7 +64,7 @@ void TableSearcher::search(std::string& searchQuery, HashMap& hashMap) {
     this->searchedDocs.clear();
     isThereDuplicate = false;
     
-    end    = clock();
+    end = clock();
     result = (double)(end - start);
     
     std::cout << ">>>>> " << result / CLOCKS_PER_SEC << "s\n\n";
@@ -118,7 +118,8 @@ void TableSearcher::temporalSort(std::vector<int>& array) {
             // 중복된 원소를 구분하기 위해, 이전 원소의 count 값을 -1로 변경한다.
             compArr[i - 1].setCount(-1);
             
-            // 이전 원소의 index 값을 현재 원소의 index 값으로 변경한다. 그 다음 원소가 똑같은 value 값을 가졌을 경우 현재 원소의 index 값이 다음 원소의 index 값으로 지정된다.
+            // 이전 원소의 index 값을 현재 원소의 index 값으로 변경한다.
+            // 그 다음 원소가 똑같은 value 값을 가졌을 경우 현재 원소의 index 값이 다음 원소의 index 값으로 지정된다.
             // 이렇개 하여 첫 번째로 중복된 원소의 index 값이 마지막으로 중복된 원소의 index 값으로 복사되도록 만든다.
             compArr[i].setIndex(compArr[i - 1].getIndex());
             
