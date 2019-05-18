@@ -9,27 +9,3 @@ bool Comparator::sortByFreq(const Comparator& a, const Comparator& b) {
         return (a.index > b.index);
     }
 }
-
-void Comparator::setCount(int count) {
-    this->count = count;
-}
-
-void Comparator::setIndex(int index) {
-    this->index = index;
-}
-
-void Comparator::setValue(int value) {
-    this->value = value;
-}
-
-int Comparator::getCount() {
-    return this->count;
-}
-
-int Comparator::getIndex() {
-    return this->index;
-}
-
-int Comparator::getValue() {
-    return this->value;
-}

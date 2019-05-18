@@ -3,23 +3,13 @@
 
 class Comparator {
 public:
+    friend class TableSearcher;
+    
     Comparator() = default;
     
     ~Comparator() = default;
     
     static bool sortByFreq(const Comparator& a, const Comparator& b);
-    
-    void setCount(int count);
-    
-    void setIndex(int index);
-    
-    void setValue(int value);
-    
-    int getCount();
-    
-    int getIndex();
-    
-    int getValue();
 
 private:
     int count = 0;

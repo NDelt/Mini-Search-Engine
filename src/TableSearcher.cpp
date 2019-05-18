@@ -102,30 +102,30 @@ void TableSearcher::temporalSort(std::vector<int>& array) {
     std::vector<Comparator> compArr((unsigned long)size);
     
     for (int i = 0; i < size; ++i) {
-        compArr[i].setIndex(i); // Comparator 객체의 index 값을 i로 초기화
-        compArr[i].setCount(0); // Comparator 객체의 count 값을 0으로 초기화
-        compArr[i].setValue(array[i]); // Comparator 객체의 value 값을 인자로 주어진 array 배열의 i번 인덱스의 원소로 초기화
+        compArr[i].index = i;        // Comparator 객체의 index 값을 i로 초기화
+        compArr[i].count = 0;        // Comparator 객체의 count 값을 0으로 초기화
+        compArr[i].value = array[i]; // Comparator 객체의 value 값을 인자로 주어진 array 배열의 i번 인덱스의 원소로 초기화
     }
     
-    compArr[0].setCount(1); // 첫 번째 원소의 count 값을 1로 설정
+    compArr[0].count = 1; // 첫 번째 원소의 count 값을 1로 설정
     
     for (int i = 1; i < size; ++i) {
-        if (compArr[i].getValue() == compArr[i - 1].getValue()) { /* 현재 원소의 value 값이 이전 원소의 value 값과 동일할 경우 */
+        if (compArr[i].value == compArr[i - 1].value) { /* 현재 원소의 value 값이 이전 원소의 value 값과 동일할 경우 */
             // '이전 원소의 count 값 + 현재 원소의 count 값 + 1'을 현재 원소의 conut 값으로 지정한다.
             // vector 생성 시 모든 원소의 count 값은 0으로 초기화되었기 때문에 1을 더한다.
-            compArr[i].setCount(compArr[i - 1].getCount() + compArr[i].getCount() + 1);
+            compArr[i].count = compArr[i - 1].count + compArr[i].count + 1;
             
             // 중복된 원소를 구분하기 위해, 이전 원소의 count 값을 -1로 변경한다.
-            compArr[i - 1].setCount(-1);
+            compArr[i - 1].count = -1;
             
             // 이전 원소의 index 값을 현재 원소의 index 값으로 변경한다.
             // 그 다음 원소가 똑같은 value 값을 가졌을 경우 현재 원소의 index 값이 다음 원소의 index 값으로 지정된다.
             // 이렇개 하여 첫 번째로 중복된 원소의 index 값이 마지막으로 중복된 원소의 index 값으로 복사되도록 만든다.
-            compArr[i].setIndex(compArr[i - 1].getIndex());
+            compArr[i].index = compArr[i - 1].index;
             
         } else { /* 현재 원소의 value 값이 이전 원소의 value 값과 다를 경우 */
             // 중복되지 않는 최초의 원소이기 때문에 count 값을 1로 지정한다.
-            compArr[i].setCount(1);
+            compArr[i].count = 1;
         }
     }
     
@@ -138,9 +138,9 @@ void TableSearcher::temporalSort(std::vector<int>& array) {
     // 하지만 위의 연산을 수행하고 나면 compArr 배열은 count 값이 작은 순으로, count가 같을 경우 index 값이 큰 순으로 정렬되기 때문에
     // 출력 시에는 compArr 배열의 마지막 원소부터 역순으로 순회해야 한다.
     for (int i = size - 1, index = 0; i >= 0; --i) {
-        if (compArr[i].getCount() != -1) { /* count 값이 -1인 중복 원소가 아닐 경우 */
-            for (int j = 0; j < compArr[i].getCount(); ++j) {
-                array[index++] = compArr[i].getValue();
+        if (compArr[i].count != -1) { /* count 값이 -1인 중복 원소가 아닐 경우 */
+            for (int j = 0; j < compArr[i].count; ++j) {
+                array[index++] = compArr[i].value;
                 // 예를 들어 compArr[1]의 count 값이 3이라면, compArr[1]의 value 값을 array 배열에 연속으로 세 번 저장한다.
             }
         }
