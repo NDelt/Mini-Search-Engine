@@ -22,4 +22,4 @@
 ```
 
 ### 클래스 구조
-![alt text](resources/arch.png)
+![Alt text](resources/arch.png)
