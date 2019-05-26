@@ -111,7 +111,7 @@ void TableSearcher::temporalSort(std::vector<int>& array) {
     
     for (int i = 1; i < size; ++i) {
         if (compArr[i].value == compArr[i - 1].value) { /* 현재 원소의 value 값이 이전 원소의 value 값과 동일할 경우 */
-            // '이전 원소의 count 값 + 현재 원소의 count 값 + 1'을 현재 원소의 conut 값으로 지정한다.
+            // '이전 원소의 count 값 + 현재 원소의 count 값 + 1'을 현재 원소의 count 값으로 지정한다.
             // vector 생성 시 모든 원소의 count 값은 0으로 초기화되었기 때문에 1을 더한다.
             compArr[i].count = compArr[i - 1].count + compArr[i].count + 1;
             
