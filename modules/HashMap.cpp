@@ -27,9 +27,8 @@ void HashMap::add(const std::string& key, const int value) {
         std::vector<HashSlot>& colVtr = this->matrix.at((unsigned long)rowIdx);
         
         auto itr = colVtr.begin();
-        auto endItr = colVtr.end();
         
-        while (itr != endItr) {
+        while (itr != colVtr.end()) {
             if (!colVtr.empty() && (*itr).getKey() == key && (*itr).getValue() == value) {
                 return; // rowIdx 인덱스에 위치한 vector에 인자로 전달된 키와 값을 가진 원소가 이미 존재한다면 슬롯을 추가하지 않는다.
             }
@@ -72,9 +71,8 @@ std::vector<int> HashMap::getValues(const std::string& key) {
         std::vector<HashSlot>& colVtr = this->matrix.at((unsigned long)rowIdx); // colVtr이 matrix vector의 rowIdx 인덱스에 위치한 vector를 참조한다.
         
         auto itr = colVtr.begin();
-        auto endItr = colVtr.end();
         
-        while (itr != endItr) {
+        while (itr != colVtr.end()) {
             if ((*itr).getKey() == key) {
                 valueFound = true;
                 ret.push_back((*itr).getValue());
@@ -108,9 +106,8 @@ void HashMap::remove(const std::string& key, const int value) {
         std::vector<HashSlot>& colVtr = this->matrix.at((unsigned long)rowIdx);
         
         auto itr = colVtr.begin();
-        auto endItr = colVtr.end();
         
-        while (itr != endItr) {
+        while (itr != colVtr.end()) {
             if ((*itr).getKey() == key && (*itr).getValue() == value) {
                 valueFound = true;
                 colVtr.erase(itr); // itr이 가리키는 HashSlot 원소를 삭제한다.
