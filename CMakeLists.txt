@@ -1,6 +1,6 @@
 # <------------ Based on Linux distributions --------------->
 CMAKE_MINIMUM_REQUIRED(VERSION 3.10)
-PROJECT(WebIndexer_CppModule)
+PROJECT(WebIndexer)
 
 SET(CMAKE_CXX_COMPILER "c++")
 SET(CMAKE_CXX_FLAGS "-std=c++17 -m64 -O2 -pedantic -Wall -Wextra -Werror")
