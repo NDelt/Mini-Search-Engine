@@ -1,0 +1,10 @@
+# CLion configurations
+.idea/
+out/
+META-INF/
+*.iml
+cmake-build-release-wsl/CMakeFiles/
+cmake-build-release-wsl/CMakeCache.txt
+cmake-build-release-wsl/Makefile
+cmake-build-release-wsl/WebIndexer_CppModule.cbp
+cmake-build-release-wsl/cmake_install.cmake
