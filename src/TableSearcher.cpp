@@ -34,6 +34,8 @@ void TableSearcher::search(std::string& searchQuery, HashMap& hashMap) {
     
     for (const std::string& str : parsedString) {
         taken = hashMap.getValues(str);
+        
+        // 'searchedDocs' vector에 끝에 'taken' vector를 이어붙인다.
         this->searchedDocs.insert(this->searchedDocs.end(), taken.begin(), taken.end());
         
         if (!this->searchedDocs.empty()) {
@@ -120,7 +122,7 @@ void TableSearcher::temporalSort(std::vector<int>& array) {
             
             // 이전 원소의 index 값을 현재 원소의 index 값으로 변경한다.
             // 그 다음 원소가 똑같은 value 값을 가졌을 경우 현재 원소의 index 값이 다음 원소의 index 값으로 지정된다.
-            // 이렇개 하여 첫 번째로 중복된 원소의 index 값이 마지막으로 중복된 원소의 index 값으로 복사되도록 만든다.
+            // 이렇게 하여 첫 번째로 중복된 원소의 index 값이 마지막으로 중복된 원소의 index로 복사되도록 만든다.
             compArr[i].index = compArr[i - 1].index;
             
         } else { /* 현재 원소의 value 값이 이전 원소의 value 값과 다를 경우 */
