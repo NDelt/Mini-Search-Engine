@@ -2,7 +2,10 @@
 .idea/
 out/
 META-INF/
+<<<<<<< HEAD
 *.iml
+=======
+>>>>>>> 3b8d90c50ef8b4324a13ae644962e475bd76f488
 cmake-build-release-wsl/CMakeFiles/
 cmake-build-release-wsl/CMakeCache.txt
 cmake-build-release-wsl/Makefile
