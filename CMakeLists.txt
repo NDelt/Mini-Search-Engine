@@ -1,6 +1,6 @@
 # <------------ Based on Linux distributions --------------->
 CMAKE_MINIMUM_REQUIRED(VERSION 3.10)
-PROJECT(MiniSearchEngine)
+PROJECT(Mini-Search-Engine-Cpp)
 
 SET(CMAKE_CXX_COMPILER "c++")
 SET(CMAKE_CXX_FLAGS "-std=c++17 -m64 -O3 -pedantic -Wall -Wextra -Werror")

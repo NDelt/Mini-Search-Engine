@@ -8,8 +8,8 @@
  */
 
 void TableIndexer::createIndex(const std::string& filePath, HashMap& hashMap) {
-    clock_t start, end;
-    double  result;
+    clock_t start, end, loopStart, loopEnd;
+    double result;
     
     std::cout << std::fixed;
     std::cout.precision(4);
@@ -26,6 +26,7 @@ void TableIndexer::createIndex(const std::string& filePath, HashMap& hashMap) {
     std::cout << ">>>>> CSV parsing complete. [" << result / CLOCKS_PER_SEC << "s]\n\n";
     
     int wordsParsingCount = 1;
+    loopStart = clock();
     
     // 사용하는 CSV 파일 컬럼: ID(0), TITLE(1), BASIC QUALIFICATIONS(5)
     // 토큰 분석 대상 컬럼: BASIC QUALIFICATIONS(5)
@@ -70,5 +71,9 @@ void TableIndexer::createIndex(const std::string& filePath, HashMap& hashMap) {
         ++wordsParsingCount;
     }
     
-    std::cout << ">>>>> Inverted index table is created : " << hashMap.getCurrentRowCount() << " rows.\n\n";
+    loopEnd = clock();
+    result  = (double)(loopEnd - loopStart);
+    
+    std::cout << ">>>>> Inverted index table is created : " << hashMap.getCurrentRowCount()
+              << " rows. [" << result / CLOCKS_PER_SEC << "s]\n\n";
 }
