@@ -6,7 +6,7 @@
 ### 개발 환경
 * [JetBrains CLion](https://www.jetbrains.com/clion/?fromMenu)
 * Windows Subsystem for Linux - Ubuntu 18.04
-* GCC 7.3.0
+* g++ 7.3.0
 * CMake 3.10.2
 
 ### 사용하기
@@ -16,7 +16,7 @@
 - sudo chmod -R 755 Mini-SearchEngine/
 - cd cmake-build-release-wsl/
 - ./main
-- 인덱싱(약 20초 소요) 완료 후 검색어 입력(ex: golang, hadoop, aws azure, spark, ...)
+- 인덱싱 완료 후 검색어 입력(ex: golang, hadoop, aws azure, spark, ...)
 >> 입력한 검색어를 포함하는 CSV 파일의 레코드 ID를 오름차순으로 출력
 >> 여러 단어로 된 검색어를 입력했을 경우, 공통 ID를 우선하여 출력
 ```
