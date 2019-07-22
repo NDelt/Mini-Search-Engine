@@ -35,7 +35,7 @@ void TableSearcher::search(std::string& searchQuery, HashMap& hashMap) {
     for (const std::string& str : parsedString) {
         taken = hashMap.getValues(str);
         
-        // 'searchedDocs' vector에 끝에 'taken' vector를 이어붙인다.
+        // 'searchedDocs' vector의 끝에 'taken' vector를 이어붙인다.
         this->searchedDocs.insert(this->searchedDocs.end(), taken.begin(), taken.end());
         
         if (!this->searchedDocs.empty()) {
