@@ -7,12 +7,12 @@
 
 void TableSearcher::search(std::string& searchQuery, HashMap& hashMap) {
     std::vector<std::string> parsedString;
-    std::vector<int> taken;
+    std::vector<int>         taken;
     
     int wordCount = 0;
     
     clock_t start, end;
-    double result;
+    double  result;
     
     std::cout << std::fixed;
     std::cout.precision(4);
@@ -22,7 +22,7 @@ void TableSearcher::search(std::string& searchQuery, HashMap& hashMap) {
     if (searchQuery.length() == 1) {
         std::cout << "1-letter word could not be searched.\n";
         
-        end = clock();
+        end    = clock();
         result = (double)(end - start);
         
         std::cout << ">>>>> " << result / CLOCKS_PER_SEC << "s\n\n";
@@ -66,7 +66,7 @@ void TableSearcher::search(std::string& searchQuery, HashMap& hashMap) {
     this->searchedDocs.clear();
     isThereDuplicate = false;
     
-    end = clock();
+    end    = clock();
     result = (double)(end - start);
     
     std::cout << ">>>>> " << result / CLOCKS_PER_SEC << "s\n\n";
@@ -97,6 +97,10 @@ std::vector<int> TableSearcher::findDuplicate(const std::vector<int>& array) {
     return duplicate;
 }
 
+/*
+ * 빈도수 기반 정렬 알고리즘(Sort elements by frequency)
+ * 출처: https://www.geeksforgeeks.org/sort-elements-by-frequency/
+ */
 void TableSearcher::temporalSort(std::vector<int>& array) {
     int size = (int)array.size();
     

@@ -1,12 +1,12 @@
 # Mini Search Engine (C++)
-<img src="https://img.shields.io/badge/version-0.1.0-blue.svg" alt="image" />
+<img src="https://img.shields.io/badge/version-1.0.0-blue.svg" alt="image" />
 
 역색인 테이블 기반 검색 엔진 (C++)
 
 ### 개발 환경
 * [JetBrains CLion](https://www.jetbrains.com/clion/?fromMenu)
 * Windows Subsystem for Linux - Ubuntu 18.04
-* g++ 7.3.0
+* g++ 7.4.0
 * CMake 3.10.2
 
 ### 사용하기
@@ -23,3 +23,6 @@
 
 ### 클래스 구조
 ![alt text](resources/arch.PNG)
+
+### 사용 예시
+![alt text](resources/example.gif)
