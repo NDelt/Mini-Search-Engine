@@ -23,7 +23,7 @@ public:
 protected:
     std::vector<int> findDuplicate(const std::vector<int>& array);
     
-    // std::sort()에 인자로 전달될 함수는 static으로 선언한다.
+    // std::sort()에 인자로 전달될 멤버 함수는 static으로 선언한다.
     static bool comparator(const std::pair<int, int>& a, const std::pair<int, int>& b);
     
     void sortByFreq(std::vector<int>& array);
