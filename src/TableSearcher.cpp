@@ -119,12 +119,10 @@ void TableSearcher::sortByFreq(std::vector<int>& array) {
         }
     }
     
-    std::unordered_map<int, int>::iterator umapIter = totalFreq.begin();
-    std::vector<std::pair<int, int>>       pairs;
+    std::vector<std::pair<int, int>> pairs;
     
-    while (umapIter != totalFreq.end()) {
-        pairs.push_back(std::make_pair(umapIter->first, umapIter->second));
-        ++umapIter;
+    for (const auto& tp : totalFreq) {
+        pairs.push_back(std::make_pair(tp.first, tp.second));
     }
     
     std::sort(pairs.begin(), pairs.end(), comparator);
@@ -132,6 +130,7 @@ void TableSearcher::sortByFreq(std::vector<int>& array) {
     
     array.clear();
     
+    // std::pair<>형 원소를 가진 vector에 대해서는 Range-based for문을 사용할 수 없다.
     while (vecIter != pairs.end()) {
         for (int i = 0; i < vecIter->second; ++i) {
             array.push_back(vecIter->first);
