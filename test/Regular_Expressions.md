@@ -42,15 +42,15 @@
 * ^(https|http|www)
   * 문자열의 맨 앞에는 https, http, www 중 하나가 와야 한다.
 * ((?!oreilly.com).)*$
-  * ^(...)의 바로 뒤에는 "oreilly.com"이 배제된 임의의 문자열이 나타나고, 종료된다.
+  * ^(...)의 바로 뒤에는 `oreilly.com`이 배제된 임의의 문자열이 나타나고, 종료된다.
 
 ### 3-2
 >^(https|http|www)((?!oreilly.com).)*
 * ^(https|http|www)
   * 문자열의 맨 앞에는 https, http, www 중 하나가 와야 한다.
 * ((?!oreilly.com).)*
-  * ^(...)의 바로 뒤에는 "oreilly.com"이 배제된 임의의 문자열이 나타난다.
-  * 그러나 이 문자열이 마지막이라는 뜻은 없으므로, oreilly.com~ 이전의 "https://www."까지는 주어진 정규 표현식과 일치하게 된다.
+  * ^(...)의 바로 뒤에는 `oreilly.com`이 배제된 임의의 문자열이 나타난다.
+  * 그러나 이 문자열이 마지막이라는 뜻은 없으므로, oreilly.com~ 이전의 `https://www.`까지는 주어진 정규 표현식과 일치하게 된다.
 
 
 ### 4.
