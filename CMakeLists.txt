@@ -2,8 +2,8 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.10)
 PROJECT(Mini-Search-Engine-Cpp)
 
-SET(CMAKE_CXX_COMPILER "c++")
-SET(CMAKE_CXX_FLAGS "-std=c++17 -m64 -pedantic -Wall -Wextra -Werror")
+set(CMAKE_CXX_STANDARD 17)
+SET(CMAKE_CXX_FLAGS "/W4 /WX /Za /permissive-")
 SET(CMAKE_VERBOSE_MAKEFILE TRUE)
 
 SET(SOURCES src/main.cpp
