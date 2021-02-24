@@ -14,7 +14,7 @@ std::vector<std::vector<std::string>> CSVParser::parse(const std::string& filePa
     std::vector<std::vector<std::string>> matrix; // 2차원 vector
     
     if (reader.fail()) {
-        std::cout << "Error - '" << filePath << "' does not exist!\n";
+        std::cout << "* Error : '" << filePath << "' does not exist!\n";
         std::exit(EXIT_FAILURE);
     }
     
