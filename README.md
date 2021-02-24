@@ -18,7 +18,7 @@ cd output/
 ./mini-search-engine (Windows: .\mini-search-engine.exe)
 ```
 
-약 2~3분 간의 인덱싱 수행 후 검색어 입력(ex: golang, hadoop, aws azure, spark, ...)
+약 10초 간의 인덱싱 작업(WSL Ubuntu 20.04 기준) 후 검색어 입력(ex: golang, hadoop, aws azure, spark, ...)
 
 * 입력한 검색어를 포함하는 CSV 파일의 레코드 ID를 오름차순으로 출력
 * 여러 단어로 된 검색어를 입력했을 경우, 공통 ID를 우선하여 출력
