@@ -14,7 +14,7 @@
 ```
 cd mini-search-engine/
 cmake .
-make all
+make all (Windows: devenv .\Mini-Search-Engine-Cpp.sln /build Debug)
 cd output/
 ./mini-search-engine (Windows: .\mini-search-engine.exe)
 ```
