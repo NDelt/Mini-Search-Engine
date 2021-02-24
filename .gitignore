@@ -44,13 +44,14 @@
 # CMake
 cmake-build-*/
 
-# Cache files
+# Cache files and folders
 *.dir/
 .vs/
 x64/
 x86/
 CMakeFiles/
 Debug/
+Release/
 CMakeCache.txt
 cmake_install.cmake
 Makefile
