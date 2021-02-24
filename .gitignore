@@ -50,6 +50,7 @@ cmake-build-*/
 x64/
 x86/
 CMakeFiles/
+Debug/
 CMakeCache.txt
 cmake_install.cmake
 Makefile
