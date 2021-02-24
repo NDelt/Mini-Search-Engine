@@ -7,12 +7,12 @@
 
 void TableSearcher::search(std::string& searchQuery, HashMap& hashMap) {
     std::vector<std::string> parsedString;
-    std::vector<int>         taken;
+    std::vector<int> taken;
     
     int wordCount = 0;
     
     clock_t start, end;
-    double  result;
+    double result;
     
     std::cout << std::fixed;
     std::cout.precision(4);
@@ -22,7 +22,7 @@ void TableSearcher::search(std::string& searchQuery, HashMap& hashMap) {
     if (searchQuery.length() == 1) {
         std::cout << "1-letter word could not be searched.\n";
         
-        end    = clock();
+        end = clock();
         result = (double)(end - start);
         
         std::cout << ">>>>> " << result / CLOCKS_PER_SEC << "s\n\n";
@@ -54,8 +54,10 @@ void TableSearcher::search(std::string& searchQuery, HashMap& hashMap) {
         sortByFreq(this->searchedDocs);
     }
     
-    // 중복 원소 제거
-    this->searchedDocs.erase(std::unique(this->searchedDocs.begin(), this->searchedDocs.end()), this->searchedDocs.end());
+    // 중복 원소 제거: std::unique()는 중복된 원소들을 배열의 맨 뒤로 모으고, 그 중 첫 번째 원소의 인덱스를 반환한다.
+    this->searchedDocs.erase(
+        std::unique(this->searchedDocs.begin(), this->searchedDocs.end()), this->searchedDocs.end()
+    );
     
     for (int i : this->searchedDocs) {
         std::cout << i << " ";
@@ -66,7 +68,7 @@ void TableSearcher::search(std::string& searchQuery, HashMap& hashMap) {
     this->searchedDocs.clear();
     isThereDuplicate = false;
     
-    end    = clock();
+    end = clock();
     result = (double)(end - start);
     
     std::cout << ">>>>> " << result / CLOCKS_PER_SEC << "s\n\n";
