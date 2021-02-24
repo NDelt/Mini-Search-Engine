@@ -14,6 +14,7 @@
 ```
 cd mini-search-engine/
 cmake .
+make all
 cd output/
 ./mini-search-engine (Windows: .\mini-search-engine.exe)
 ```
