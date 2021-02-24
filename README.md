@@ -10,13 +10,40 @@
 * CMake 3.16 ~ 3.17
 
 ### 사용하기
-
+1. 프로젝트 폴더로 이동
 ```
 cd mini-search-engine/
+```
+2. 빌드 스크립트 생성
+```
 cmake .
-make all (윈도우: devenv .\Mini-Search-Engine-Cpp.sln /build Debug)
-cd output/ (윈도우: cd Debug/)
-./mini-search-engine (윈도우: .\mini-search-engine.exe)
+```
+3. 빌드
+* Linux
+```
+make all
+```
+* Windows
+```
+devenv .\Mini-Search-Engine-Cpp.sln /build Debug
+```
+4. 바이너리 폴더로 이동
+* Linux
+```
+cd output/
+```
+* Windows
+```
+cd Debug/
+```
+5. 바이너리 실행
+* Linux
+```
+./mini-search-engine
+```
+* Windows
+```
+.\mini-search-engine.exe
 ```
 
 약 10초 간의 인덱싱 작업(WSL Ubuntu 20.04 기준) 후 검색어 입력(ex: golang, hadoop, aws azure, spark, ...)
