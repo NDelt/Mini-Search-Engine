@@ -14,9 +14,9 @@
 ```
 cd mini-search-engine/
 cmake .
-make all (Windows: devenv .\Mini-Search-Engine-Cpp.sln /build Debug)
-cd output/
-./mini-search-engine (Windows: .\mini-search-engine.exe)
+make all (윈도우: devenv .\Mini-Search-Engine-Cpp.sln /build Debug)
+cd output/ (윈도우: cd Debug/)
+./mini-search-engine (윈도우: .\mini-search-engine.exe)
 ```
 
 약 10초 간의 인덱싱 작업(WSL Ubuntu 20.04 기준) 후 검색어 입력(ex: golang, hadoop, aws azure, spark, ...)
