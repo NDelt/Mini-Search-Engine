@@ -45,6 +45,10 @@
 cmake-build-*/
 
 # Cache files
+*.dir/
+.vs/
+x64/
+x86/
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
