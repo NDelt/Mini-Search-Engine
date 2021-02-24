@@ -68,7 +68,8 @@ std::vector<int> HashMap::getValues(const std::string& key) {
             return ret;
         }
         
-        std::vector<HashSlot>& colVtr = this->matrix.at((unsigned long)rowIdx); // colVtr이 matrix vector의 rowIdx 인덱스에 위치한 vector를 참조한다.
+        // colVtr이 matrix vector의 rowIdx 인덱스에 위치한 vector를 참조한다.
+        std::vector<HashSlot>& colVtr = this->matrix.at((unsigned long)rowIdx);
         
         auto itr = colVtr.begin();
         
