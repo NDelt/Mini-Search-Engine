@@ -7,7 +7,7 @@
 ### 개발 환경
 
 * [JetBrains CLion](https://www.jetbrains.com/clion/?fromMenu)
-* CMake 3.17.5
+* CMake 3.16 ~ 3.17
 
 ### 사용하기
 
