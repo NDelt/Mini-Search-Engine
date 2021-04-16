@@ -1,8 +1,8 @@
-# Mini Search Engine (C++)
+# Mini Search Engine
 
 <img src="https://img.shields.io/badge/version-1.0.0-blue.svg" alt="image" />
 
-역색인 테이블 기반 검색 엔진 (C++)
+역색인 테이블 기반 검색 엔진
 
 ### 개발 환경
 
