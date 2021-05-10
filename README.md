@@ -4,12 +4,12 @@
 
 역색인 테이블 기반 검색 엔진
 
-### 개발 환경
+## 개발 환경
 
 * [JetBrains CLion](https://www.jetbrains.com/clion/?fromMenu)
 * CMake 3.16 ~ 3.17
 
-### 사용하기
+## 사용하기
 1. 프로젝트 폴더로 이동
 ```
 cd mini-search-engine/
@@ -51,15 +51,15 @@ cd Debug/
 * 입력한 검색어를 포함하는 CSV 파일의 레코드 ID를 오름차순으로 출력
 * 여러 단어로 된 검색어를 입력했을 경우, 공통 ID를 우선하여 출력
 
-### 클래스 구조
+## 클래스 구조
 
 ![alt text](resources/arch.PNG)
 
-### 사용 예시
+## 사용 예시
 
 ![alt text](resources/example.gif)
 
-### 참고 문서
+## 참고 문서
 
 * [검색과 색인, 그리고 강력한 지원군 루씬(Lucene)](https://blog.naver.com/tmondev/220323614797)
 * [구글 검색 엔진의 해부학](http://www.emh.co.kr/content.pl?google_search_engine)
