@@ -59,8 +59,3 @@ cd Debug/
 
 ![alt text](resources/example.gif)
 
-## 참고 문서
-
-* [검색과 색인, 그리고 강력한 지원군 루씬(Lucene)](https://blog.naver.com/tmondev/220323614797)
-* [구글 검색 엔진의 해부학](http://www.emh.co.kr/content.pl?google_search_engine)
-* [나는 왜 루씬을 C++로 재작성했는가?](https://deview.kr/data/deview/2019/presentation/[145]%EB%82%98%EB%8A%94%20%EC%99%9C%20%EB%A3%A8%EC%94%AC%EC%9D%84%20C++%EB%A1%9C%20%EC%9E%AC%EC%9E%91%EC%84%B1%ED%96%88%EB%8A%94%EA%B0%80.pdf)
